@@ -38,10 +38,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseEventos">
             <li>
-              <a href="#">Ver eventos</a>
+              <a href="navbar.html">Ver eventos</a>
             </li>
             <li>
-              <a href="#">Criar Evento</a>
+              <a href="cards.html">Criar Evento</a>
             </li>
           </ul>
         </li>
@@ -52,10 +52,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseParcerias">
             <li>
-              <a href="#">Ver Parcerias</a>
+              <a href="navbar.html">Ver Parcerias</a>
             </li>
             <li>
-              <a href="#">Criar Parceria</a>
+              <a href="cards.html">Criar Parceria</a>
             </li>
           </ul>
         </li>
@@ -66,15 +66,15 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseDocentes">
             <li>
-              <a href="#">Ver Docentes</a>
+              <a href="navbar.html">Ver Docentes</a>
             </li>
             <li>
-              <a href="#">Criar Docente</a>
+              <a href="cards.html">Criar Docente</a>
             </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Testemunho">
-          <a class="nav-link" href="testemunhos.html">
+          <a class="nav-link" href="blank.html">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Testemunho</span>
           </a>
@@ -90,27 +90,33 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Sair</a>
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Blank Page</li>
+      </ol>
       <div class="row">
         <div class="col-12">
-          <h1>Dashboard</h1>
-          
+          <h1>Blank</h1>
+          <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
         </div>
       </div>
-      
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
+          <small></small>
         </div>
       </div>
     </footer>
@@ -123,15 +129,15 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Pronto para sair?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Carregue Sair para sair da sessão atual</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="login.html">Sair</a>
           </div>
         </div>
       </div>
