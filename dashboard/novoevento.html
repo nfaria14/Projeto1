@@ -93,17 +93,74 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12">
-          <h1>Dashboard</h1>
+        <div class="col-md-12">
+          <h1>Criar evento</h1>
           
         </div>
       <div class="row">
         
-        <div class="col-6">
-           <!--FORMULÁRIO-->
+        <div class="col-md-1">
 
         </div>
-       <div class="col-6">
+        <div class="col-md-8">
+        <!--FORMULÁRIO-->
+           <form id="frmEventos">
+            <div class="form-row">
+              <!--Campo nome-->
+                    <div class="form-group col-md-12">
+                        <label for="inputNome">Nome</label>
+                        <input type="text" value="Evento" class="form-control" id="inputNome" maxlength="30" required>
+                    </div>                    
+                  </div>
+
+                      <!--DATA-->
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputData">Data</label>
+                        <input type="date" value="mm-dd-yyyy" class="form-control" id="inputData" required>
+                    </div> 
+                </div>
+                <!--Hora-->
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputTime">Hora</label>
+                        <input type="time" value="hh-mm AM" class="form-control" id="inputTime" required>
+                    </div> 
+                </div>
+                <!--Sala-->
+                <div class="form-group col-md-12">
+                    <label for="inputSala">Sala</label>
+                    <input type="text" value="Sala" class="form-control" id="inputSala" maxlength="4" required>
+                </div> 
+                <!--Categorias-->
+                <div class="form-group mb-12">
+                    <label for="selCategorias">Categorias</label>
+                    <select id="selCategorias"></select>
+                  </div>
+                  <!--Responsável-->
+                  <div class="form-group col-md-12">
+                      <label for="inputResponsavel">Nome do Responsável</label>
+                      <input type="text" value="Evento" class="form-control" id="inputResponsavel" maxlength="30" required>
+                  </div>                    
+                
+
+                  <!--Imagem (Alterar mais tarde)-->
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputPoster">Imagem Evento</label>
+                        <input type="url" value="url" class="form-control" id="inputPoster" required>
+                    </div> 
+                </div>
+                    <!-- Buttons-->
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary mb-2">Gravar Evento</button>
+                        <button type="reset" class="btn btn-primary mb-2">Limpar</button>
+                    </div>
+                </div>
+    </form>
+        </div>
+       <div class="col-md-3">
           <!--CALENDÁRIO-->
 
        </div>
