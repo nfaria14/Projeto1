@@ -1,6 +1,4 @@
 let eventoID=0
-let eventos= []
-let categorias=[]
 
 window.onload=function(){
 //Referencias HTML
