@@ -9,7 +9,7 @@ window.onload=function(){
     let categoria=document.getElementById("selCategorias")
     let responsavel=document.getElementById("inputResponsavel")
     let imagem=document.getElementById("inputPoster")
-//Ir buscar o ID da categoria
+//Ir buscar o ID das categorias
     let categoriaID
 //Submeter Evento
     let formEventos=document.getElementById("frmEventos")

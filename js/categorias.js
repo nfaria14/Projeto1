@@ -12,7 +12,7 @@ class Categoria{
     }
 
      //Ir buscar o último ID
-     static getLastId() {
+     static getLastID() {
         let lastId = 0
         //ARRAY DE CATEGORIAS
         if (categorias.length > 0) {
@@ -24,11 +24,27 @@ class Categoria{
     
     //Propriedade Nome
     get nome(){
-        return this._name
+        return this._nome
     }
 
     set nome(value){
         this._nome=value
     }
 
+}
+
+//Function preencher array
+
+function rendercategorias(){
+
+    if (localStorage.getItem('categorias')) {
+        let a = JSON.parse(localStorage.getItem('categorias'))
+
+        //Maneira de encher o array sem ter que mexer nas variáceis internas
+        for (let i = 0; i < a.length; i++) {
+            let b = new Categoria(a[i]._nome)
+            categorias.push(b)
+        }
+
+}
 }
