@@ -85,7 +85,7 @@ function removeCatById(id) {
     for (let i = 0; i < categorias.length; i++) {
         if(categorias[i].id == id) {
             categorias.splice(i, 1)
-            //Atualizar local storage        
+            //Atualizaar local storage        
             localStorage.setItem("categorias", JSON.stringify(categorias))
         }                  
     }
