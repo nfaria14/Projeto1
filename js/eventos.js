@@ -97,7 +97,7 @@ function rendereventos(){
 
         //Maneira de encher o array sem ter que mexer nas variáceis internas
         for (let i = 0; i < a.length; i++) {
-            let b = new Categoria(a[i]._nome)
+            let b = new Evento(a[i]._nome,a[i]._data,a[i]._hora,a[i]._sala,a[i]._categoria,a[i]._responsavel,a[i]._imagem)
             categorias.push(b)
         }
 
