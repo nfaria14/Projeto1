@@ -1,4 +1,4 @@
-let catID = 0
+
 window.onload = function () {
 
     //Atualizar o array

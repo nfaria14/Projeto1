@@ -4,6 +4,7 @@ class Evento {
     constructor(nome,data,hora,sala,categoria,responsavel,imagem){
         this._id=Evento.getLastId()+1
         this.nome=nome
+        this.data=data
         this.hora=hora
         this.sala=sala
         this.categoria=categoria

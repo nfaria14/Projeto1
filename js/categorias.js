@@ -1,4 +1,5 @@
 let categorias=[]
+let catID = 0
 class Categoria{
     constructor(nome){
         this._id=Categoria.getLastID()+1
