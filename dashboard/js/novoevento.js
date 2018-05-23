@@ -90,5 +90,3 @@ function renderCats() {
     selCategorias.innerHTML = strHtml
 }
 
-
-//Render Calendário
