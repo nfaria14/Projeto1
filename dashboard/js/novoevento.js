@@ -1,6 +1,8 @@
 
 
 window.onload = function () {
+    //Renderizar eventos
+    rendereventos()
     //Renderizar categorias
     rendercategorias()
     //renderizar Combobox
