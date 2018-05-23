@@ -1,4 +1,5 @@
 let eventos= []
+let eventoID = 0
 class Evento {
     constructor(nome,data,hora,sala,categoria,responsavel,imagem){
         this._id=Evento.getLastId()+1
