@@ -61,7 +61,7 @@ class Evento {
     set sala(value){
         this._sala=value
     }
-    //Propriedade categoria(MAIS TARDE SERÁ UMA CLASSE?)
+    //Propriedade categoria
     get categoria(){
         return this._categoria
     }
@@ -88,3 +88,18 @@ class Evento {
 
 }   
 
+//Function preencher array
+
+function rendereventos(){
+
+    if (localStorage.getItem('eventos')) {
+        let a = JSON.parse(localStorage.getItem('eventos'))
+
+        //Maneira de encher o array sem ter que mexer nas variáceis internas
+        for (let i = 0; i < a.length; i++) {
+            let b = new Categoria(a[i]._nome)
+            categorias.push(b)
+        }
+
+}
+}

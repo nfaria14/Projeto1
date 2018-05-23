@@ -26,11 +26,12 @@ window.onload = function () {
        for (let i = 0; i < campos.length; i++) {
             //Agora percorrer o array das categorias a ver se o campo x existe, se existir existe= true e sempre q ele acaba de percorrer isso verifica como o existe está
             for (let j = 0; j < categorias.length; j++) {
-                if(campos[i].toUpperCase()==categorias[j].toUpperCase){
+                if(campos[i].toUpperCase()==categorias[j]._nome.toUpperCase()){
                     existe=true
-
+                    stringcat+=categorias[j]._nome+";"
+                    console.log("__"+stringcat)
                 }
-                
+                console.log("__"+stringcat)
             }
             if(existe=true){
                 console.log(campos[i])
