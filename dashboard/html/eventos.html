@@ -14,15 +14,16 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-    <!-- Custom scripts for all pages-->
-    <script src="../js/categorias.js"></script>
-    <script src="js/novacategoria.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="../js/categorias.js"></script>
+  <script src="../js/eventos.js"></script>
+  <script src="js/catalogo.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">eNote</a>
+    <a class="navbar-brand" href="../index.html">eNote</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -30,7 +31,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="../index.html">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
@@ -110,53 +111,52 @@
     </div>
   </nav>
 
-  <!--Content-->
+  <!--CONTENT-->
   <div class="content-wrapper">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <h1>Categorias</h1>
+          <h1>Dashboard</h1>
+
         </div>
-
-
         <div class="row">
-          <div class="col-md-1">
-
-          </div>
-          <!--Formulário para criar categorias-->
           <div class="col-md-3">
-            <form id="frmCategorias">
-              <div class="form-row">
-                <label for="inputCategoria">Categoria:</label>
-                <input type="text" value="Evento" class="form-control" id="inputCategoria" size="50px" required>
-              </div>
-              <!-- Buttons-->
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <button type="submit" class="btn btn-primary mb-2">Gravar Categoria</button>
-                  <button type="reset" class="btn btn-primary mb-2">Limpar</button>
-                </div>
-              </div>
-            </form>
 
           </div>
-          <!--Tabela com categorias-->
-          <div class="col-md-8">
-            <table id="tblCategorias">
+          <div class="col-md-6">
+
+            <!--LISTA DE EVENTOS-->
+            <form class="form-inline">
+              <div class="form-group mb-12">
+                
+                <label for="selCategorias">Categorias</label>
+                <select id="selCategorias"></select>
+                <button id="btnSearch" type="button" class="btn btn-primary mb-2 mr-1">Procurar</button>
+              </div>
+            
+
+            </form>
+            <table id="tblEventos">
+
 
             </table>
 
           </div>
+          <div class="col-6">
+            <!--CALENDÁRIO-->
 
+          </div>
         </div>
+
       </div>
+
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small></small>
+
         </div>
       </div>
     </footer>
@@ -187,7 +187,8 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  
+
+
   </div>
 </body>
 
