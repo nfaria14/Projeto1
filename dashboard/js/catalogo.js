@@ -1,13 +1,13 @@
-window.onload=function(){
+window.onload = function () {
 
     //Ir buscar o array de eventos e de categorias atualizado
     rendereventos()
     rendercategorias()
     renderCats()
-    
+
 
     //Ir buscar a tabela
-    let tblEventos=document.getElementById("tblEventos")
+    let tblEventos = document.getElementById("tblEventos")
     renderTable()
 
 
@@ -44,55 +44,92 @@ function renderCats() {
     selCategorias.innerHTML = strHtml
 }
 
-//Função para renderizar tabela
+//Função para renderizar tabela--MAL
 
- // Função para renderizar a tabela 
- function renderTable() {
-    let strHtml = "<thead class='thead-dark'><tr>" +
-        "<th class='w-2'>#</th>" +
-        "<th class='w-50'>Nome</th>"+
-        "<th class='w-20'>Data</th>"+
-        "<th class='w-20'>Hora</th>"+
-        "<th class='w-20'>Sala</th>"+
-        "<th class='w-50'>Categorias</th>"+
-        "<th class='w-20'>Responsável</th>"+
-        "<th class='w-20'>Imagem</th>"+
-        "</tr>" +
-        "</thead><tbody>"
+// Função para renderizar a tabela 
+function renderTable(categoria = "", filtro = "") {
+    //Iterar sobre o array de eventos
+    // 2. Para cada evento vou definir uma Card e compô-la com os dados do objeto
 
-    for (var i = 0; i < eventos.length; i++) {
-        strHtml += "<tr>" +
-            "<td>" + eventos[i]._id + "</td>" +
-            "<td>" + eventos[i]._nome + "</td>" +
-            "<td>" + eventos[i]._data + "</td>" +
-            "<td>" + eventos[i]._hora + "</td>" +
-            "<td>" + eventos[i]._sala + "</td>" +
-            "<td>" + eventos[i]._categoria + "</td>" +
-            "<td>" + eventos[i]._responsavel + "</td>" +
-            "<td>" + eventos[i]._imagem + "</td>" +
-            "<td>"+
-            "<a id='" + eventos[i]._id + "' class='remove'><i class='fa fa-remove'></i></a> " +
-            "</td>" +
-            "<td>"+
-            "<a id='" + eventos[i]._id + "' class='edit'><i class='fa fa-remove'></i></a> " +
-            "</td>" +
-            "</tr>"
+    switch (filtro) {
+        case "": //Renderizar por categoria
+            renderTablecategorias(categoria)
+            break;
+        case "recentes"://Renderizar por recentes
+            break;
+        case "pontuacoes"://Renderizar por pontuaçoes
+            break;
+        case "realizados"://Renderizar já realizados
+            break;
+        case "arealizar"://Renderizar os que ainda vão acontecer
+            break;
+
+
+
+
     }
-    strHtml += "</tbody>"
-    tblEventos.innerHTML = strHtml
-
-    // Get all the remove links from the table
-    let tdRemove = document.getElementsByClassName("remove")
-    // For each link, add a listener to listen the click event
-    for (let i = 0; i < tdRemove.length; i++) {
-        tdRemove[i].addEventListener("click", function () {
-            // By clicking in a specific game, remove it from the array
-            let categoriaId = tdRemove[i].getAttribute("id")
-            removeCatById(categoriaId)
-            renderTable()
-        })
-    }
-
-
 }
 
+
+
+
+
+function renderTablecategorias(categorias = "") {
+    let strHtmlCard=""
+    //Percorrer o array de eventos
+    for (let i = 0; i < eventos.length; i++) {
+        let campos = eventos[i]._categoria.split(";")
+        //Percorrer o campo
+        for (let j = 0; j < campos.length; j++) {
+
+
+            if ((categorias == "") ||
+                (categorias == campos[j] && campos[j] != "")) {
+
+                // Inicia a linha
+                if (i % 3 == 0) {
+                    strHtmlCard += `<div class="row">`
+                }
+
+                // Cria a card
+                strHtmlCard += `<div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="${eventos[i]._imagem}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">${eventos[i]._nome}</h5>
+                <p class="card-text">${eventos[i]._sala}</p>
+                <p class="card-text">${eventos[i]._data}</p>
+                <p class="card-text">${eventos[i]._hora}</p>`
+                strHtmlCard += `<a id="${eventos[i]._id}" href="#" class="btn btn-danger remove">Editar</a>`
+
+                strHtmlCard += `<a id="${eventos[i]._id}" href="#" class="btn btn-danger remove">Remover</a>`
+
+                strHtmlCard += `</div>
+        </div>      
+    </div>`
+
+                // Fecha a linha
+                if (i % 3 == 2) {
+                    strHtmlCard += `</div>`
+                    let eventosCatalog = document.getElementById("catalog")
+                    tripsCatalog.innerHTML = strHtmlCard
+
+                    // Obter todos os botões REMOVE
+                    let btnRemove = document.getElementsByClassName("remove")
+                    // Para cada botão, adicionar um listener para escutar pelo evento clique
+                    for (let i = 0; i < btnRemove.length; i++) {
+                        btnRemove[i].addEventListener("click", function () {
+                            // By clicking in a specific game, remove it from the array
+                            let tripId = btnRemove[i].getAttribute("id")
+                            removeTripById(tripId)
+                            renderCatalog(userId)
+                        })
+                    }
+
+                   
+                }
+
+            }
+        }
+    }
+}

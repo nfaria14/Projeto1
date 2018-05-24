@@ -9,15 +9,15 @@
   <meta name="author" content="">
   <title>Admin Dashboard</title>
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="../css/sb-admin.css" rel="stylesheet">
   <!-- Custom scripts for all pages-->
-  <script src="../js/categorias.js"></script>
-  <script src="../js/eventos.js"></script>
-  <script src="js/catalogo.js"></script>
+  <script src="../../js/categorias.js"></script>
+  <script src="../../js/eventos.js"></script>
+  <script src="../js/catalogo.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -128,19 +128,26 @@
             <!--LISTA DE EVENTOS-->
             <form class="form-inline">
               <div class="form-group mb-12">
-                
+
                 <label for="selCategorias">Categorias</label>
                 <select id="selCategorias"></select>
-                <button id="btnSearch" type="button" class="btn btn-primary mb-2 mr-1">Procurar</button>
+                <label for="selFiltros">Filtros:</label>
+                <select id="selFiltros">
+                  <option value="">Todos</option>
+                  <option value="recentes">Mais recentes</option>
+                  <option value="pontuacoes">Melhor Pontuados</option>
+                  <option value="realizados">Realizados</option>
+                  <option value="arealizar">Por Realizar</option>
+                </select>
+                <button id="btnSearch" type="button" class="btn btn-primary mb-2 mr-1">Filtrar</button>
               </div>
-            
+
 
             </form>
-            <table id="tblEventos">
+            <div id="catalog" class="container">
 
 
-            </table>
-
+            </div>
           </div>
           <div class="col-6">
             <!--CALENDÁRIO-->
@@ -183,10 +190,10 @@
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
 
   </div>
