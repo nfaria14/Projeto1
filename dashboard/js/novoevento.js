@@ -18,10 +18,15 @@ window.onload = function () {
     let strerr = ""
     let stringcat = ""
 
+    //Definir data minima
+    let data2= new Date()
+    let datinha2= data2.toISOString().split('T')[0]
 
+    data.setAttribute('min',datinha2)
     //Submeter Evento
     let formEventos = document.getElementById("frmEventos")
     formEventos.addEventListener("submit", function (event) {
+        event.preventDefault()
         let campos = inputCategoria.value.split(";")
         let existe=false
         //Verificar se as categorias existem
@@ -45,7 +50,10 @@ window.onload = function () {
             }
            
        }
-        //Verificar se string de erro está vazia
+       
+
+        
+       //Verificar se string de erro está vazia
         if (strerr == "") {
             //Criar Objeto e enviar para o array
             let newEvento = new Evento(nome.value, data.value, hora.value, sala.value, stringcat, responsavel.value, imagem.value)
@@ -56,7 +64,7 @@ window.onload = function () {
             alert(strerr)
         }
 
-        event.preventDefault()
+        
 
     })
 
