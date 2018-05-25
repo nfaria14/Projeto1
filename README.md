@@ -9,3 +9,5 @@ Página Categorias--Done
 
 FAZER Página de docentes e parcerias(BACKOFFICE)
 Depois Eventos
+
+PARCERIAS BACKOFFICE FEITO
