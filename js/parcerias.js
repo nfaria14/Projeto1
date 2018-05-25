@@ -1,3 +1,5 @@
+let parcerias=[]
+let parceriaID=0
 class Parceria{
     constructor(nome,local,url){
         this._id=Parceria.getLastId()+1
@@ -24,7 +26,7 @@ class Parceria{
      //Propriedade Nome
 
      get nome(){
-        return this._name
+        return this._nome
     }
 
     set nome(value){
@@ -48,4 +50,20 @@ class Parceria{
     set url(value){
         this._url=value
     }
+}
+
+//Function preencher array
+
+function renderparcerias(){
+
+    if (localStorage.getItem('parcerias')) {
+        let a = JSON.parse(localStorage.getItem('parcerias'))
+
+        //Maneira de encher o array sem ter que mexer nas variáceis internas
+        for (let i = 0; i < a.length; i++) {
+            let b = new Parceria(a[i]._nome,a[i]._local,a[i]._url)
+           parcerias.push(b)
+        }
+
+}
 }
