@@ -92,8 +92,8 @@ function renderTable() {
         }
 
         // Cria a card
-        strHtmlCard += `<div class="col-sm-6">
-                <div class="card" style="width: 15rem;">
+        strHtmlCard += `<div class="col-sm-5">
+                <div class="card">
                     <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${temparray[i]._nome}</h5>
