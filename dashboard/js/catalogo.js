@@ -30,7 +30,39 @@ window.onload = function () {
                 console.log("A categoria -" + cat)
                 renderizararray(cat)
                 renderTable()
-                break
+                break;
+            case "recentes":
+                tblEventos.innerHTML = ""
+                console.log("O filtro é -" + selFiltros.value)
+                console.log("A categoria -" + cat)
+                console.log(temparray)
+                renderizararray(cat)
+                console.log("O ARRAY ANTES DE SER ORDENADO" + temparray)
+                ordenararrayRecentes(temparray)
+                console.log("O ARRAY DEPOIS" + temparray)
+                console.log(temparray)
+                renderTable()
+                break;
+            case "realizados"://Working
+                tblEventos.innerHTML = ""
+                console.log("O filtro é -" + selFiltros.value)
+                console.log("A categoria -" + cat)
+                renderizararray(cat)
+                filtrarRealizados(temparray)
+                renderTable()
+                break;
+            case "arealizar"://WORKING
+                tblEventos.innerHTML = ""
+                console.log("O filtro é -" + selFiltros.value)
+                console.log("A categoria -" + cat)
+                console.log(temparray)
+                renderizararray(cat)
+                filtrarPorRealizar(temparray)
+                console.log(temparray)
+                renderTable()
+                break;
+            case "pontuacoes":
+                break;
         }
 
     })
@@ -66,13 +98,13 @@ function renderCats() {
 
     let selCategorias = document.getElementById("selCategorias")
     selCategorias.innerHTML = strHtml
-  
+
 }
 
 
 
-// Função para renderizar a tabela -- FINALMENTE DAS <3
-function renderizararray(cat ="") {
+// Função para renderizar a tabela
+function renderizararray(cat = "") {
     temparray = []
     console.log("___" + cat)
     for (let i = 0; i < eventos.length; i++) {
@@ -87,12 +119,12 @@ function renderTable() {
     let strHtmlCard = ""
     for (let i = 0; i < temparray.length; i++) {
         // Inicia a linha
-        if (i % 3 == 0) {
+        if (i % 3== 0) {
             strHtmlCard += `<div class="row">`
         }
 
         // Cria a card
-        strHtmlCard += `<div class="col-sm-5">
+        strHtmlCard += `<div class="col-sm-4 ">
                 <div class="card">
                     <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
                     <div class="card-body">
@@ -107,7 +139,7 @@ function renderTable() {
             </div>`
 
         // Fecha a linha
-        if (i % 3 == 2) {
+        if (i % 3== 2) {
             strHtmlCard += `</div>`
         }
 
@@ -129,12 +161,12 @@ function renderTable() {
         })
     }
     //Obter todos os botões EDIT
-    let btnEdit=document.getElementsByClassName("edit")
+    let btnEdit = document.getElementsByClassName("edit")
     //Criar um campo na base de dados para guardar o evento que se vai editar
-    for(let i=0;i<btnEdit.length;i++){
-        btnEdit[i].addEventListener("click",function(){
-            let eventoID= btnEdit[i].getAttribute("id")
-            localStorage.setItem("eventoID",eventoID)
+    for (let i = 0; i < btnEdit.length; i++) {
+        btnEdit[i].addEventListener("click", function () {
+            let eventoID = btnEdit[i].getAttribute("id")
+            localStorage.setItem("eventoID", eventoID)
             console.log(eventoID)
         })
 
@@ -151,5 +183,68 @@ function removeeventoById(id) {
     }
 }
 
+function filtrarRealizados(array) {//Funciona VERY NICEEEEE
+    let hoje = new Date()
+
+    let data = hoje.toISOString().split('T')[0]
+    let tamanho = array.length
+    for (let i = 0; i < tamanho; i++) {
+        if (new Date(data) < new Date(array[i]._data)) {
+            console.log(array[i]._data)
+            array.splice(i, 1)
+            tamanho = array.length
+            i--
+        } else {
+            console.log("Este passa " + array[i]._data)
+        }
+    }
+
+}
+function filtrarPorRealizar(array) {//Funciona VERY NICEEEEEE
+    let hoje = new Date()
+
+    let data = hoje.toISOString().split('T')[0]
+    let tamanho = array.length
+    for (let i = 0; i < tamanho; i++) {
+        if (new Date(data) >= new Date(array[i]._data)) {
+            console.log(array[i]._data)
+            array.splice(i, 1)
+            tamanho = array.length
+            i--
+        } else {
+            console.log("Este passa " + array[i]._data)
+        }
+    }
+}
+
+function ordenararrayRecentes(array) {//FUNCIONA FINALMENTE 
+
+    let temp = "" 
+    let objtemp
+    for (let i=0;i<array.length;i++) {
+        if(i>0){ 
+            
+            console.log(array[i]._data)
+            if (new Date(array[i-1]._data) < new Date(array[i]._data)) {
+                objtemp=array[i-1]
+                temp = array[i-1]._data
+                array[i-1]=array[i]
+                array[i-1]._data = array[i]._data
+                array[i]=objtemp
+                array[i]._data = temp
+                console.log(array[i]._data)
+                i=0
+            }
+    
+
+        }
+       
+    }
+}
 
 
+//Later
+function filtrarPontuações(array) {
+
+
+}
