@@ -18,7 +18,7 @@ window.onload = function () {
     }
     
     //enviar o array para localstorage
-    localStorage.setItem("utilizadores", JSON.stringify(utilizadores))
+    //localStorage.setItem("utilizadores", JSON.stringify(utilizadores))
 
     let frmLogin = document.getElementById("frmLogin")
     // SUBMISSÃO DE AUTENTICAÇÃO
