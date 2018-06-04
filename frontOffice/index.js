@@ -10,7 +10,7 @@ window.onload = function () {
 
     // Injetar admin 
     if (utilizadores.length == 0) {
-        let admin = new Utilizador("admin", 1, "admin123", 12345)
+        let admin = new Utilizador("admin", 2, "admin123@hotmail.com", 12345)
         utilizadores.push(admin);
         //enviar o array para localstorage
         localStorage.setItem("utilizadores", JSON.stringify(utilizadores))
