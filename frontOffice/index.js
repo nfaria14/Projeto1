@@ -10,17 +10,15 @@ window.onload = function () {
 
     // Injetar admin 
     if (utilizadores.length == 0) {
-        let admin = new Utilizador("admin", 1, "admin123", 12345)
+        let admin = new Utilizador("admin", 2, "admin@gmail.com", 12345)
         utilizadores.push(admin);
         //enviar o array para localstorage
         localStorage.setItem("utilizadores", JSON.stringify(utilizadores))
 
     }
-    
-    //enviar o array para localstorage
-    localStorage.setItem("utilizadores", JSON.stringify(utilizadores))
 
     let frmLogin = document.getElementById("frmLogin")
+
     // SUBMISSÃO DE AUTENTICAÇÃO
     frmLogin.addEventListener("submit", function (event) {
         // Obter as referências para as caixas de texto
@@ -39,8 +37,17 @@ window.onload = function () {
         // Se sim, autenticar utilizador
         if (userExists) {
             alert("Autenticação efetuado com sucesso!!")
-            // Fechar a modal
-            $('#loginModal').modal('hide')
+            
+            // ADICIONADO DIA 2 Verificar se é admin
+            for (var i = 0; i < utilizadores.length; i++) {
+                if (utilizadores[i].tipo == 2) {
+                    window.location.replace('../dashboard/index.html')
+                   
+                } else {
+                    // Fechar a modal
+                    $('#loginModal').modal('hide')
+                }
+            }
         } else {
             // Se não, exibir mensagem a indicar a inexistência do utilizador no array
             alert("Dados de autenticação inválidos!!")
