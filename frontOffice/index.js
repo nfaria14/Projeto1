@@ -8,6 +8,8 @@ window.onload = function () {
     let optLogin = document.getElementById("optLogin")
     let optRegister = document.getElementById("optRegister")
 
+
+    console.log("ENTREI!!!")
     // Injetar admin 
     if (utilizadores.length == 0) {
         let admin = new Utilizador("admin", 2, "admin123@hotmail.com", 12345)
@@ -16,7 +18,9 @@ window.onload = function () {
         localStorage.setItem("utilizadores", JSON.stringify(utilizadores))
 
     }
+
     
+
     let frmLogin = document.getElementById("frmLogin")
 
     // SUBMISSÃO DE AUTENTICAÇÃO
@@ -37,12 +41,12 @@ window.onload = function () {
         // Se sim, autenticar utilizador
         if (userExists) {
             alert("Autenticação efetuado com sucesso!!")
-            
+
             // ADICIONADO DIA 2 Verificar se é admin
             for (var i = 0; i < utilizadores.length; i++) {
-                if (utilizadores[i].tipo == 2) {
+                if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value && utilizadores[i].tipo == 2) {
                     window.location.replace('../dashboard/index.html')
-                   
+
                 } else {
                     // Fechar a modal
                     $('#loginModal').modal('hide')
