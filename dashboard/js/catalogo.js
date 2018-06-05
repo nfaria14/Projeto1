@@ -30,7 +30,39 @@ window.onload = function () {
                 console.log("A categoria -" + cat)
                 renderizararray(cat)
                 renderTable()
-                break
+                break;
+            case "recentes":
+                tblEventos.innerHTML = ""
+                console.log("O filtro é -" + selFiltros.value)
+                console.log("A categoria -" + cat)
+                console.log(temparray)
+                renderizararray(cat)
+                console.log("O ARRAY ANTES DE SER ORDENADO" + temparray)
+                ordenararrayRecentes(temparray)
+                console.log("O ARRAY DEPOIS" + temparray)
+                console.log(temparray)
+                renderTable()
+                break;
+            case "realizados"://Working
+                tblEventos.innerHTML = ""
+                console.log("O filtro é -" + selFiltros.value)
+                console.log("A categoria -" + cat)
+                renderizararray(cat)
+                filtrarRealizados(temparray)
+                renderTable()
+                break;
+            case "arealizar"://WORKING
+                tblEventos.innerHTML = ""
+                console.log("O filtro é -" + selFiltros.value)
+                console.log("A categoria -" + cat)
+                console.log(temparray)
+                renderizararray(cat)
+                filtrarPorRealizar(temparray)
+                console.log(temparray)
+                renderTable()
+                break;
+            case "pontuacoes":
+                break;
         }
 
     })
@@ -66,13 +98,13 @@ function renderCats() {
 
     let selCategorias = document.getElementById("selCategorias")
     selCategorias.innerHTML = strHtml
-  
+
 }
 
 
 
-// Função para renderizar a tabela -- FINALMENTE DAS <3
-function renderizararray(cat ="") {
+// Função para renderizar a tabela
+function renderizararray(cat = "") {
     temparray = []
     console.log("___" + cat)
     for (let i = 0; i < eventos.length; i++) {
@@ -87,19 +119,19 @@ function renderTable() {
     let strHtmlCard = ""
     for (let i = 0; i < temparray.length; i++) {
         // Inicia a linha
-        if (i % 3 == 0) {
+        if (i % 3== 0) {
             strHtmlCard += `<div class="row">`
         }
 
         // Cria a card
-        strHtmlCard += `<div class="col-sm-6">
-                <div class="card" style="width: 15rem;">
+        strHtmlCard += `<div class="col-sm-4 ">
+                <div class="card">
                     <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${temparray[i]._nome}</h5>
                         <p class="card-text">${temparray[i]._categoria}</p>`
 
-        strHtmlCard += `<a id="${temparray[i]._id}" href="#" class="btn btn-warning edit" data-toggle='modal' data-target='#eventoModal'>Editar</a>`
+        strHtmlCard += `<a id="${temparray[i]._id}" href="verevento.html" class="btn btn-warning edit" >Editar</a>`
         strHtmlCard += `<a id="${temparray[i]._id}" href="#" class="btn btn-danger remove">REMOVE</a>`
 
         strHtmlCard += `</div>
@@ -107,7 +139,7 @@ function renderTable() {
             </div>`
 
         // Fecha a linha
-        if (i % 3 == 2) {
+        if (i % 3== 2) {
             strHtmlCard += `</div>`
         }
 
@@ -128,19 +160,17 @@ function renderTable() {
             renderTable()
         })
     }
-
-    // Get all the edit links from the table
-    let tdEdit = document.getElementsByClassName("edit")
-    // For each link, add a listener to listen the click event
-    for (let i = 0; i < tdEdit.length; i++) {
-        console.log("??????"+tdEdit.length)
-        tdEdit[i].addEventListener("click", function () {
-            // By clicking in a specific game, edit in the form
-            let eventoId = tdEdit[i].getAttribute("id")
-            editeventoById(eventoId)
+    //Obter todos os botões EDIT
+    let btnEdit = document.getElementsByClassName("edit")
+    //Criar um campo na base de dados para guardar o evento que se vai editar
+    for (let i = 0; i < btnEdit.length; i++) {
+        btnEdit[i].addEventListener("click", function () {
+            let eventoID = btnEdit[i].getAttribute("id")
+            localStorage.setItem("eventoID", eventoID)
+            console.log(eventoID)
         })
-    }
 
+    }
 }
 function removeeventoById(id) {
     console.log("ID: " + id)
@@ -153,80 +183,68 @@ function removeeventoById(id) {
     }
 }
 
+function filtrarRealizados(array) {//Funciona VERY NICEEEEE
+    let hoje = new Date()
 
-function editeventoById(eventoId) {
-    eventoId = eventoId
-    let existe=false
-    let modal = document.getElementById("eventoModal")
-    //Renderizar eventos
-    rendereventos()
-    //Renderizar categorias
-    rendercategorias()
-    //renderizar Combobox
-    rendercombo()
-    //Referencias HTML
-    let nome = document.getElementById("inputNome")
-    let data = document.getElementById("inputData")
-    let hora = document.getElementById("inputTime")
-    let sala = document.getElementById("inputSala")
-    let inputCategoria = document.getElementById("inputCategoria")
-    let responsavel = document.getElementById("inputResponsavel")
-    let imagem = document.getElementById("inputPoster")
-    let strerror = ""
-    let stringcat = ""
-
-    //Definir data minima
-    let data2 = new Date()
-    let datinha2 = data2.toISOString().split('T')[0]
-
-    data.setAttribute('min', datinha2)
-    //Submeter Evento
-    let formEventos = document.getElementById("frmEventos")
-    let aux = 0
-
-    //Preencher o form
-    for (let i = 0; i < eventos.length; i++) {
-        if (eventoId == eventos[i]._id) {
-            console.log(eventoId)
-            nome.value = eventos[i]._nome
-            data.value = eventos[i]._data
-            hora.value = eventos[i]._hora
-            sala.value =eventos[i]._sala
-            inputCategoria.value=eventos[i]._categoria
-            responsavel.value=eventos[i]._responsavel
-            imagem.value=eventos[i]._imagem
-            aux = i
+    let data = hoje.toISOString().split('T')[0]
+    let tamanho = array.length
+    for (let i = 0; i < tamanho; i++) {
+        if (new Date(data) < new Date(array[i]._data)) {
+            console.log(array[i]._data)
+            array.splice(i, 1)
+            tamanho = array.length
+            i--
+        } else {
+            console.log("Este passa " + array[i]._data)
         }
     }
-    formEventos.addEventListener("submit", function (event) {
-        for (let i = 0; i < eventos.length; i++) {
-            if (nome.value == eventos[i]._nome && eventoId != eventos[i]._id) {
-                existe = true
-            }
 
-        }
-        if (existe) {
-            strerror = "evento já existe"
-        }
+}
+function filtrarPorRealizar(array) {//Funciona VERY NICEEEEEE
+    let hoje = new Date()
 
-        if (strerror != "") {
-            alert(strerror)
+    let data = hoje.toISOString().split('T')[0]
+    let tamanho = array.length
+    for (let i = 0; i < tamanho; i++) {
+        if (new Date(data) >= new Date(array[i]._data)) {
+            console.log(array[i]._data)
+            array.splice(i, 1)
+            tamanho = array.length
+            i--
         } else {
-            //Criar Objeto adicionar ao array e enviar para a locarstorage
-            console.log("O ID DO EVENTO"+aux)
-            eventos[aux]._nome = nome.value
-            eventos[aux]._data = data.value
-            eventos[aux]._hora = hora.value
-            eventos[aux]._sala=sala.value
-            eventos[aux]._categoria=inputCategoria.value
-            eventos[aux]._responsavel=responsavel.value
-            eventos[aux]._imagem=responsavel.imagem
-            localStorage.removeItem("eventos")
-            localStorage.setItem("eventos", JSON.stringify(eventos))
-            modal.modal('hide')
-            renderTable()
+            console.log("Este passa " + array[i]._data)
         }
-        event.preventDefault()
-    })
+    }
+}
+
+function ordenararrayRecentes(array) {//FUNCIONA FINALMENTE 
+
+    let temp = "" 
+    let objtemp
+    for (let i=0;i<array.length;i++) {
+        if(i>0){ 
+            
+            console.log(array[i]._data)
+            if (new Date(array[i-1]._data) < new Date(array[i]._data)) {
+                objtemp=array[i-1]
+                temp = array[i-1]._data
+                array[i-1]=array[i]
+                array[i-1]._data = array[i]._data
+                array[i]=objtemp
+                array[i]._data = temp
+                console.log(array[i]._data)
+                i=0
+            }
+    
+
+        }
+       
+    }
+}
+
+
+//Later
+function filtrarPontuações(array) {
+
 
 }

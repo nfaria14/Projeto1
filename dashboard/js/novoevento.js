@@ -17,7 +17,7 @@ window.onload = function () {
     let imagem = document.getElementById("inputPoster")
     let strerr = ""
     let stringcat = ""
-
+    
     //Definir data minima
     let data2= new Date()
     let datinha2= data2.toISOString().split('T')[0]
@@ -50,9 +50,7 @@ window.onload = function () {
             }
            
        }
-       
 
-        
        //Verificar se string de erro está vazia
         if (strerr == "") {
             //Criar Objeto e enviar para o array

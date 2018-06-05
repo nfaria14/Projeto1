@@ -1,11 +1,22 @@
+let docentes=[]
 class Docente{
-    constructor(nome,foto,formacao,uc,cv){
+    constructor(userId,nome,foto,formacao,uc,cv){
            this._id=Docente.getLastId()+1
+           this.userId=userId
            this.nome=nome
            this.foto=foto
            this.formacao=formacao
            this.uc=uc
            this.cv=cv 
+    }
+
+    //Propriedade userId
+    get userId(){
+        return this._userId
+    }
+
+    set userId(value){
+        this._userId=value
     }
     //PROPRIEDADE ID
     get id(){
@@ -66,4 +77,19 @@ class Docente{
     set cv(value){
         this._cv=value
     }
+}
+//Function preencher array
+
+function renderDocentes(){
+
+    if (localStorage.getItem('docentes')) {
+        let a = JSON.parse(localStorage.getItem('docentes'))
+
+        //Maneira de encher o array sem ter que mexer nas variáceis internas
+        for (let i = 0; i < a.length; i++) {
+            let b = new Docente(a[i]._userId,a[i]._nome,a[i]._foto,a[i]._formacao,a[i]._uc,a[i]._cv)
+            docentes.push(b)
+        }
+
+}
 }

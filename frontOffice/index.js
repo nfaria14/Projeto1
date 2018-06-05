@@ -10,12 +10,22 @@ window.onload = function () {
 
     // Injetar admin 
     if (utilizadores.length == 0) {
+<<<<<<< HEAD
         let admin = new Utilizador("admin", 2, "admin@gmail.com", 12345)
+=======
+        let admin = new Utilizador("admin", 2, "admin123@hotmail.com", 12345)
+>>>>>>> 2c16d3e3db47581fd0f203aff70bed24443ef8e4
         utilizadores.push(admin);
         //enviar o array para localstorage
         localStorage.setItem("utilizadores", JSON.stringify(utilizadores))
 
     }
+<<<<<<< HEAD
+=======
+    
+    //enviar o array para localstorage
+    //localStorage.setItem("utilizadores", JSON.stringify(utilizadores))
+>>>>>>> 2c16d3e3db47581fd0f203aff70bed24443ef8e4
 
     let frmLogin = document.getElementById("frmLogin")
 

@@ -14,6 +14,11 @@
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
+  <!--Custom Scripts-->
+  <script src="../../js/eventos.js"></script>
+  <script src="../../js/categorias.js"></script>
+  <script src="../js/verevento.js"></script>
+
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -106,16 +111,75 @@
   <!--Content AQUI VAI SER A LISTA DE TESTEMUNHOS-->
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Testemunhos</li>
-      </ol>
+      
+ 
       <div class="row">
-        <div class="col-12">
-          <h1>Lista de Testemunhos</h1>
+          <!-- Form evento-->
+        <div class="col-sm-6">
+                <form id="frmEventos">
+                        <div class="form-row">
+                          <!--Campo nome-->
+                                <div class="form-group col-md-12">
+                                    <label for="inputNome">Nome</label>
+                                    <input type="text" class="form-control" id="inputNome" maxlength="30" required>
+                                </div>                    
+                              </div>
+            
+                                  <!--DATA-->
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputData">Data</label>
+                                    <input type="date"  class="form-control" id="inputData" required>
+                                </div> 
+                            </div>
+                            <!--Hora-->
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputTime">Hora</label>
+                                    <input type="time" class="form-control" id="inputTime" required>
+                                </div> 
+                            </div>
+                            <!--Sala-->
+                            <div class="form-group col-md-12">
+                                <label for="inputSala">Sala</label>
+                                <input type="text" class="form-control" id="inputSala" maxlength="4" required>
+                            </div> 
+                            <!--Categorias-->
+                            <div class="form-group col-md-6">
+                                <label for="selCategorias">Categorias</label>
+                                <select id="selCategorias"></select>
+                              </div>
+            
+                              <div class="form-group col-md-6">
+                                  <input type="text" id="inputCategoria">
+                              </div>
+                              <!--Responsável-->
+                              <div class="form-group col-md-12">
+                                  <label for="inputResponsavel">Nome do Responsável</label>
+                                  <input type="text" class="form-control" id="inputResponsavel" maxlength="30" required>
+                              </div>                    
+                            
+            
+                              <!--Imagem-->
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputPoster">Imagem Evento</label>
+                                    <input type="url" class="form-control" id="inputPoster" required>
+                                </div> 
+                            </div>
+                                <!-- Buttons-->
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <button type="submit" class="btn btn-primary mb-2">Gravar Evento</button>
+                                    <button type="reset" class="btn btn-primary mb-2">Limpar</button>
+                                </div>
+                            </div>
+                </form> 
+        </div>
+        <!--Secção de comentários-->
+        <div class="col-sm-6">
+
+
         </div>
       </div>
     </div>
