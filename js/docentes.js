@@ -1,8 +1,8 @@
 let docentes=[]
 class Docente{
-    constructor(userId,nome,foto,formacao,uc,cv){
+    constructor(email,nome,foto,formacao,uc,cv){
            this._id=Docente.getLastId()+1
-           this.userId=userId
+           this.email=email
            this.nome=nome
            this.foto=foto
            this.formacao=formacao
@@ -11,12 +11,12 @@ class Docente{
     }
 
     //Propriedade userId
-    get userId(){
-        return this._userId
+    get email(){
+        return this._email
     }
 
-    set userId(value){
-        this._userId=value
+    set email(value){
+        this._email=value
     }
     //PROPRIEDADE ID
     get id(){
@@ -87,7 +87,7 @@ function renderDocentes(){
 
         //Maneira de encher o array sem ter que mexer nas variáceis internas
         for (let i = 0; i < a.length; i++) {
-            let b = new Docente(a[i]._userId,a[i]._nome,a[i]._foto,a[i]._formacao,a[i]._uc,a[i]._cv)
+            let b = new Docente(a[i]._email,a[i]._nome,a[i]._foto,a[i]._formacao,a[i]._uc,a[i]._cv)
             docentes.push(b)
         }
 
