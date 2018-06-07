@@ -28,7 +28,7 @@ class Docente{
         let lastId = 0
         //ARRAY DE Docentes
         if (docentes.length > 0) {
-            lastId = docentes[docentes.length-1].id
+            lastId = docentes[docentes.length-1]._id
         }        
         return lastId
     }
