@@ -65,10 +65,11 @@ function removeUserById(id) {
     for (let i = 0; i < utilizadores.length; i++) {
         if (utilizadores[i]._id == id) {
             let userNome=utilizadores[i]._nome
+            let email=utilizadores[i]._email
             if (utilizadores[i]._tipo == 1) {
                 console.log("Entrou")
                 for (let i = 0; i < docentes.length; i++) {
-                    if (docentes[i]._userId == id && docentes[i]._nome==userNome) {
+                    if (docentes[i].email == email && docentes[i]._nome==userNome) {
                         docentes.splice(i, 1)
                         //Atualizaar local storage        
                         console.log(docentes)
@@ -132,7 +133,7 @@ function editUserById(userId) {
             utilizadores[aux]._password = password.value
             utilizadores[aux]._tipo = tipo.value
             if (tipo.value == 1) {
-                let newDocente = new Docente(userId, nome.value, "Por preencher", "Por preencher", "Por preencher")
+                let newDocente = new Docente(email.value, nome.value, "Por preencher", "Por preencher", "Por preencher","Por preencher")
                 docentes.push(newDocente)
                 console.log(docentes)
                 localStorage.setItem("docentes", JSON.stringify(docentes))

@@ -18,7 +18,7 @@ class Parceria{
         let lastId = 0
         //ARRAY DE parcerias
         if (parcerias.length > 0) {
-            lastId = parcerias[parcerias.length-1].id
+            lastId = parcerias[parcerias.length-1]._id
         }        
         return lastId
     }

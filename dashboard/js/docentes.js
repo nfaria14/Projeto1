@@ -21,7 +21,7 @@ function renderTable(){
                         <h5 class="card-title">${docentes[i]._nome}</h5>
                         <p class="card-text">${docentes[i]._formacao}</p>`
 
-        strHtmlCard += `<a id="${docentes[i]._id}" href="#" class="btn btn-warning view" >Ver perfil</a>`
+        strHtmlCard += `<a id="${docentes[i]._id}" href="../html/verdocente.html" class="btn btn-warning view" >Ver perfil</a>`
 
         strHtmlCard += `</div>
                 </div>      

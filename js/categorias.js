@@ -17,7 +17,7 @@ class Categoria{
         let lastId = 0
         //ARRAY DE CATEGORIAS
         if (categorias.length > 0) {
-            lastId = categorias[categorias.length-1].id
+            lastId = categorias[categorias.length-1]._id
         }        
         return lastId
     }

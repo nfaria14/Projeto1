@@ -19,7 +19,7 @@ class Utilizador {
         let lastId = 0
         //ARRAY DE UTILIZADORES
         if (utilizadores.length > 0) {
-            lastId = utilizadores[utilizadores.length-1].id
+            lastId = utilizadores[utilizadores.length-1]._id
         }        
         return lastId
     }

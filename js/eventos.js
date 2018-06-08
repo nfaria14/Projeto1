@@ -22,7 +22,7 @@ class Evento {
         let lastId = 0
         //ARRAY DE EVENTOS
         if (eventos.length > 0) {
-            lastId = eventos[eventos.length-1].id
+            lastId = eventos[eventos.length-1]._id
         }        
         return lastId
     }
