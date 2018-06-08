@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- SideBar CSS -->
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 
     <!--Custom JS-->
     <script src="../js/utilizadores.js"></script>
@@ -28,9 +28,17 @@
         <!-- SIDEBAR-->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">Página Inicial</a>
-            <a href="mostrarEventos.html">Eventos</a>
-            <a href="#">Parcerias</a>
+            <li id="optEventos">
+                <a href="mostrarEventos.html">Eventos</a>
+            </li>
+            <li id="optCriarEventos">
+                <a href="#">Criar eventos</a>
+            </li>
+            <a href="mostarParcerias.html">Parcerias</a>
+            
+            <li id="optGerirParcerias">
+                <a href="#">Gerir Parcerias</a>
+            </li>
             <a href="#">Docentes</a>
             <a href="#">Testemunhos</a>
         </div>
@@ -61,6 +69,12 @@
                 <li id="optRegister" class="nav-item">
                     <a data-toggle="modal" data-target="#registoModal" class="nav-link" href="#">Registo</a>
                 </li>
+                 <!--OPÇÃO LOGOUT-->
+                 <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>                 
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item"></li> 
             </ul>
         </div>
     </nav>
@@ -211,7 +225,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
         <!-- Latest compiled JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>
