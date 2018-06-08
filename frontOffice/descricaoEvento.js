@@ -2,6 +2,7 @@ window.onload = function () {
     rendereventos()
     rendercategorias()
     renderCats()
+    login()
 
     //EVENTOID
     let eventoid = localStorage.getItem("eventoID")
