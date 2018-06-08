@@ -26,8 +26,17 @@
         <!-- SIDEBAR-->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="mostrarEventos.html">Eventos</a>
+            <li id="optEventos">
+                <a href="mostrarEventos.html">Eventos</a>
+            </li>
+            <li id="optCriarEventos">
+                <a href="#">Criar eventos</a>
+            </li>
             <a href="#">Parcerias</a>
+            
+            <li id="optGerirParcerias">
+                <a href="#">Gerir Parcerias</a>
+            </li>
             <a href="#">Docentes</a>
             <a href="#">Testemunhos</a>
         </div>
@@ -58,6 +67,12 @@
                 <li id="optRegister" class="nav-item">
                     <a data-toggle="modal" data-target="#registoModal" class="nav-link" href="#">Registo</a>
                 </li>
+                 <!--OPÇÃO LOGOUT-->
+                 <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>                 
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item"></li>  
             </ul>
         </div>
     </nav>

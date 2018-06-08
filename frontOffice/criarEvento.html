@@ -15,10 +15,8 @@
 
     <!--Custom JS-->
     <script src="../js/utilizadores.js"></script>
-    <script src="../js/categorias.js"></script>
-    <script src="../js/eventos.js"></script>    
     <script src="index.js"></script>
-    <script src="mostrarEventos.js"></script>
+
 
 </head>
 
@@ -29,8 +27,17 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="index.html">Página Inicial</a>
-            <a href="mostrarEventos.html">Eventos</a>
+            <li id="optEventos">
+                <a href="mostrarEventos.html">Eventos</a>
+            </li>
+            <li id="optCriarEventos">
+                <a href="#">Criar eventos</a>
+            </li>
             <a href="#">Parcerias</a>
+
+            <li id="optGerirParcerias">
+                <a href="#">Gerir Parcerias</a>
+            </li>
             <a href="#">Docentes</a>
             <a href="#">Testemunhos</a>
         </div>
@@ -61,9 +68,16 @@
                 <li id="optRegister" class="nav-item">
                     <a data-toggle="modal" data-target="#registoModal" class="nav-link" href="#">Registo</a>
                 </li>
+                <!--OPÇÃO LOGOUT-->
+                <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item"></li>
             </ul>
         </div>
     </nav>
+
 
     <!--MODAL PARA REGISTO-->
     <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,46 +151,75 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <input type="submit" class="btn btn-primary" value="Login" />
+                    <input type="submit" onclick="myFunction()" class="btn btn-primary" value="Login" />
                 </div>
                 </form>
             </div>
         </div>
     </div>
 
-
-    <!--CATALOG (jumbotron)-->
-    <div class="jumbotron">
-        <h1 class="display-4">Catálogo de Eventos</h1>
-        <p class="lead">Pesquise todos os eventos!</p>
+    </div>
 
 
-        <form class="form-inline">
-            <div class="form-group mb-12">
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Criação de evento</h1>
 
-                <label for="selCategorias">Categorias</label>
-                <select id="selCategorias"></select>
-                <label for="selFiltros">Filtros:</label>
-                <select id="selFiltros">
-                    <option value="">Todos</option>
-                    <option value="recentes">Mais recentes</option>
-                    <option value="pontuacoes">Melhor Pontuados</option>
-                    <option value="realizados">Realizados</option>
-                    <option value="arealizar">Por Realizar</option>
-                </select>
-                <button id="btnSearch" type="button" class="btn btn-primary mb-2 mr-1">Filtrar</button>
-            </div>
+            <form id="frmEventos">
 
 
-        </form>
+                <div class="form-group row">
+                    <label for="inputNome" class="col-1 col-form-label">Nome:</label>
+                    <div class="col-11">
+                        <input type="text" value="Evento" class="form-control" id="inputNome" maxlength="30" required>
+                    </div>
+                </div>
 
-        <div id="catalog" class="card-group" >
+                <div class="form-group row">
+                    <label for="inputData" class="col-1 col-form-label">Data:</label>
+                    <div class="col-3">
+                        <input type="date" class="form-control" id="inputData" required>
+                    </div>
 
+                    <label for="inputTime" class="col-1 col-form-label">Hora:</label>
+                    <div class="col-3">
+                        <input type="time" value="hh-mm AM" class="form-control" id="inputTime" required>
+                    </div>
+                    <label for="inputSala" class="col-1 col-form-label">Sala:</label>
+                    <div class="col-3">
+                        <input type="text" value="Sala" class="form-control" id="inputSala" maxlength="4" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="selCategorias" class="col-1 col-form-label">Categorias:</label>
+                    <div class="col-1">
+                        <select id="selCategorias"></select>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" value: "Escreva aqui as categorias" id="inputCategoria">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputResponsavel" class="col-1 col-form-label">Responsavel:</label>
+                    <div class="col-5">
+                        <input type="text" value="Evento" class="form-control" id="inputResponsavel" maxlength="30" required>
+                    </div>
+
+                    <label for="inputPoster" class="col-1 col-form-label">Imagem:</label>
+                    <div class="col-5">
+                            <input type="url" value="url" class="form-control" id="inputPoster" required>
+                        </div>
+                </div>
+
+
+            </form>
         </div>
     </div>
 
 
-    </div>
 
 
     <!-- jQuery library -->

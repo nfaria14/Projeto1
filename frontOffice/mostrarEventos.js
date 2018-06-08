@@ -119,24 +119,35 @@ function renderTable() {
     let strHtmlCard = ""
     for (let i = 0; i < temparray.length; i++) {
         // Inicia a linha
-        if (i % 3== 0) {
+        if (i % 3 == 0) {
             strHtmlCard += `<div class="row">`
         }
 
+        
         // Cria a card
-        strHtmlCard += `<div class="col-sm-1"></div><div class="col-sm-3">
+        strHtmlCard += `<div class="col-sm-4">
                 <div class="card" >
-                    <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
+                    <img style='height: 400px; width: 300px; object-fit: cover' class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${temparray[i]._nome}</h5>
-                        <p class="card-text">${temparray[i]._categoria}</p>`
+                        <p class="card-text">${temparray[i]._categoria}
+                        </p>
+                       
+                        <div align="center">
+                        <small class="text-muted">${temparray[i]._data}</small>
+                        </div>
+                        
+                        <div align="center">
+                        <a id="${temparray[i]._id}" href="descricaoEvento.html" class="btn btn-warning edit">Ver</a>
+                        </div>
+        </div>
 
-        strHtmlCard += `</div>
                 </div>      
             </div>`
 
+
         // Fecha a linha
-        if (i % 3== 2) {
+        if (i % 3 == 2) {
             strHtmlCard += `</div>`
         }
 
@@ -145,8 +156,19 @@ function renderTable() {
 
     tblEventos.innerHTML = strHtmlCard
 
-}
 
+    //Obter todos os botões EDIT
+    let btnEdit = document.getElementsByClassName("edit")
+    //Criar um campo na base de dados para guardar o evento que se vai editar
+    for (let i = 0; i < btnEdit.length; i++) {
+        btnEdit[i].addEventListener("click", function () {
+            let eventoID = btnEdit[i].getAttribute("id")
+            localStorage.setItem("eventoID", eventoID)
+            console.log(eventoID)
+        })
+
+    }
+}
 
 function filtrarRealizados(array) {//Funciona VERY NICEEEEE
     let hoje = new Date()
@@ -184,26 +206,26 @@ function filtrarPorRealizar(array) {//Funciona VERY NICEEEEEE
 
 function ordenararrayRecentes(array) {//FUNCIONA FINALMENTE 
 
-    let temp = "" 
+    let temp = ""
     let objtemp
-    for (let i=0;i<array.length;i++) {
-        if(i>0){ 
-            
+    for (let i = 0; i < array.length; i++) {
+        if (i > 0) {
+
             console.log(array[i]._data)
-            if (new Date(array[i-1]._data) < new Date(array[i]._data)) {
-                objtemp=array[i-1]
-                temp = array[i-1]._data
-                array[i-1]=array[i]
-                array[i-1]._data = array[i]._data
-                array[i]=objtemp
+            if (new Date(array[i - 1]._data) < new Date(array[i]._data)) {
+                objtemp = array[i - 1]
+                temp = array[i - 1]._data
+                array[i - 1] = array[i]
+                array[i - 1]._data = array[i]._data
+                array[i] = objtemp
                 array[i]._data = temp
                 console.log(array[i]._data)
-                i=0
+                i = 0
             }
-    
+
 
         }
-       
+
     }
 }
 

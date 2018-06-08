@@ -8,6 +8,16 @@ window.onload = function () {
     let optLogin = document.getElementById("optLogin")
     let optRegister = document.getElementById("optRegister")
 
+    // Esconder opções de autenticação
+    optLogout.style.display = 'none'
+    optHi.style.display = 'none'
+
+    //NAVBAR
+    let optEventos = document.getElementById("optCriarEventos")
+    optEventos.style.display = 'none'
+    let optParcerias = document.getElementById("optGerirParcerias")
+    optParcerias.style.display = 'none'
+
 
     console.log("ENTREI!!!")
     // Injetar admin 
@@ -19,7 +29,7 @@ window.onload = function () {
 
     }
 
-    
+
 
     let frmLogin = document.getElementById("frmLogin")
 
@@ -32,9 +42,12 @@ window.onload = function () {
         // Iterar sobre o array e verificar se o utilizador já existe
         let userExists = false
         let userName = ""
+        let userID
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value) {
                 userExists = true
+                userName = utilizadores[i]._nome
+                userID = utilizadores[i]._id
             }
         }
 
@@ -48,16 +61,54 @@ window.onload = function () {
                     window.location.replace('../dashboard/index.html')
 
                 } else {
+
+
+                    localStorage.setItem("userID", userID)
+
+
                     // Fechar a modal
                     $('#loginModal').modal('hide')
+                    // Alterar navbar 
+                    optLogin.style.display = 'none'
+                    optRegister.style.display = 'none'
+                    optLogout.style.display = 'block'
+                    optHi.innerHTML = "<a class='nav-link' href='#'>Olá, " +
+                        userName + "</a>"
+                    optHi.style.display = 'block'
+
                 }
             }
+            //MOSTRAR AS OPÇÕES DA NAVBAR DO DOCENTE 
+
+            for (let i = 0; i < utilizadores.length; i++) {
+                if (userID == utilizadores[i]._id) {
+                    if (utilizadores[i]._tipo == 1) {
+
+                        optEventos.style.display = 'block'
+                        optParcerias.style.display = 'block'
+                    }
+                }
+            }
+            //---------------------------------------------------------
         } else {
             // Se não, exibir mensagem a indicar a inexistência do utilizador no array
             alert("Dados de autenticação inválidos!!")
         }
         event.preventDefault()
 
+    })
+
+
+
+
+    // LOGOUT
+    optLogout.addEventListener("click", function () {
+        optLogin.style.display = 'block'
+        optRegister.style.display = 'block'
+        optLogout.style.display = 'none'
+        optHi.style.display = 'none'
+        optEventos.style.display = 'none'
+        optParcerias.style.display = 'none'
     })
 
     // SUBMISSÃO DE REGISTO
