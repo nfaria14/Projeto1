@@ -4,7 +4,7 @@ window.onload = function () {
      //Renderizar utilizadores
      renderUtilizadores()
     login()
-    
+    verificarlogin()    
 
 
     //Ir buscar o array de eventos e de categorias atualizado

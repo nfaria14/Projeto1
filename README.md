@@ -33,3 +33,7 @@ páginas html. uma função nesse código todo?
 para a semana tratamos dos comentarios!
 depois diz alguma cena
 
+PARCEIROS:
+
+
+JÁ TENHO A PARTE DOS PARCEIROS FEITA

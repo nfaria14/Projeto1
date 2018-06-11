@@ -104,6 +104,7 @@ function login(){
         optHi.style.display = 'none'
         optEventos.style.display = 'none'
         optParcerias.style.display = 'none'
+        localStorage.setItem("userID",0)
     })
 
     // SUBMISSÃO DE REGISTO
@@ -151,4 +152,34 @@ function login(){
         }
         event.preventDefault()
     })
+
+    
+}
+
+
+function verificarlogin(){
+    if(localStorage.getItem("userID")){
+        let userID=localStorage.getItem("userID")
+        let optEventos = document.getElementById("optCriarEventos")
+        let optParcerias = document.getElementById("optGerirParcerias")
+
+        for(let i=0;i<utilizadores.length;i++){
+                if(utilizadores[i]._id==userID){
+                    optLogin.style.display = 'none'
+                    optRegister.style.display = 'none'
+                    optLogout.style.display = 'block'
+                    optHi.innerHTML = "<a class='nav-link' href='#'>Olá, " +
+                        utilizadores[i]._nome + "</a>"
+                    optHi.style.display = 'block'
+                    if (utilizadores[i]._tipo == 1) {
+
+                        optEventos.style.display = 'block'
+                        optParcerias.style.display = 'block'
+                    }   
+                }
+
+        }
+
+    }
+
 }
