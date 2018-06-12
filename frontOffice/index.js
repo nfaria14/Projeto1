@@ -5,7 +5,7 @@ window.onload = function () {
     renderUtilizadores()
     login()
    
-
+    console.log(window.location.href)
 
 }
 

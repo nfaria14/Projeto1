@@ -53,7 +53,13 @@ function login(){
             // ADICIONADO DIA 2 Verificar se é admin
             for (var i = 0; i < utilizadores.length; i++) {
                 if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value && utilizadores[i].tipo == 2) {
-                    window.location.replace('../../dashboard/index.html')
+                    if(window.location.href=="file:///C:/Users/j_hen/Desktop/ESMAD/Projeto/Projeto1/frontOffice/index.html"){
+                        window.location.replace('../dashboard/index.html')
+
+                    }else{
+                        window.location.replace('../../dashboard/index.html')
+
+                    }
 
                 } else {
 
