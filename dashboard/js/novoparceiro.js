@@ -1,4 +1,6 @@
 window.onload=function(){
+    logout()
+
     //Ir buscar as parcerias existentes
     renderparcerias()
 

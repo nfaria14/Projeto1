@@ -1,4 +1,6 @@
 window.onload = function () {
+    logout()
+
     renderparcerias()
     let tblParceiros = document.getElementById("tblParceiros")
     renderTable()

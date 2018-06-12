@@ -1,5 +1,6 @@
 
 window.onload = function () {
+    logout()
 
     //Atualizar o array
     rendercategorias()

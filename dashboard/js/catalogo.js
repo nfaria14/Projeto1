@@ -1,6 +1,6 @@
 let temparray = []
 window.onload = function () {
-
+    logout()
     //Ir buscar o array de eventos e de categorias atualizado
     rendereventos()
     rendercategorias()

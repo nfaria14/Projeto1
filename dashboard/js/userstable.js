@@ -1,4 +1,6 @@
 window.onload = function () {
+    logout()
+
     renderUtilizadores()
     renderDocentes()
     let tblUsers = document.getElementById("tblUsers")
