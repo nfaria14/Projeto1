@@ -1,4 +1,6 @@
 window.onload=function(){
+    logout()
+
     renderDocentes()
     let catDocentes=document.getElementById("docentes")
     renderTable()

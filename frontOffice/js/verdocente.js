@@ -1,5 +1,6 @@
 window.onload=function(){
-    logout()
+    login()
+    verificarlogin()
 
     renderDocentes()
     let docenteID= localStorage.getItem("docenteID")

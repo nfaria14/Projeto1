@@ -8,16 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- SideBar CSS -->
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 
     <!--Custom JS-->
-    <script src="../js/utilizadores.js"></script>
-    <script src="../js/categorias.js"></script>
-    <script src="../js/eventos.js"></script>    
-    <script src="mostrarEventos.js"></script>
+    <script src="../models/utilizadores.js"></script>
+    <script src="../models/categorias.js"></script>
+    <script src="../models/eventos.js"></script>
+    <script src="js/login.js"></script>
+    <script src="descricaoEvento.js"></script>
 
 </head>
 
@@ -27,11 +28,19 @@
         <!-- SIDEBAR-->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">Página Inicial</a>
-            <a href="mostrarEventos.html">Eventos</a>
-            <a href="#">Parcerias</a>
-            <a href="#">Docentes</a>
-            <a href="#">Testemunhos</a>
+            <li id="optEventos">
+                <a href="mostrarEventos.html">Eventos</a>
+            </li>
+            <li id="optCriarEventos">
+                <a href="criarEvento.html">Criar eventos</a>
+            </li>
+            <a href="mostarParcerias.html">Parcerias</a>
+            
+            <li id="optGerirParcerias">
+                <a href="#">Criar Parceria</a>
+            </li>
+            <a href="mostrarDocentes.html">Docentes</a>
+            <a href="testemunhos.html">Testemunhos</a>
         </div>
         <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776; menu</span>
 
@@ -60,6 +69,12 @@
                 <li id="optRegister" class="nav-item">
                     <a data-toggle="modal" data-target="#registoModal" class="nav-link" href="#">Registo</a>
                 </li>
+                 <!--OPÇÃO LOGOUT-->
+                 <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>                 
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item"></li> 
             </ul>
         </div>
     </nav>
@@ -144,48 +159,73 @@
     </div>
 
 
-    <!--CATALOG (jumbotron)-->
-    <div class="jumbotron">
-        <h1 class="display-4">Catálogo de Eventos</h1>
-        <p class="lead">Pesquise todos os eventos!</p>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Descrição do Evento</h1>
 
+            <form id="frmEventos">
+                <div class="form-row">
+                    <!--Campo nome-->
+                    <div class="form-group col-md-12">
+                        <label for="inputNome">Nome</label>
+                        <input type="text" class="form-control" id="inputNome" disabled>
+                    </div>
+                </div>
 
-        <form class="form-inline">
-            <div class="form-group mb-12">
+                <!--DATA, HORA E SALA-->
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputData">Data</label>
+                        <input type="date" class="form-control" id="inputData" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputTime">Hora</label>
+                        <input type="time" class="form-control" id="inputTime" disabled>
+                    </div>
 
-                <label for="selCategorias">Categorias</label>
-                <select id="selCategorias"></select>
-                <label for="selFiltros">Filtros:</label>
-                <select id="selFiltros">
-                    <option value="">Todos</option>
-                    <option value="recentes">Mais recentes</option>
-                    <option value="pontuacoes">Melhor Pontuados</option>
-                    <option value="realizados">Realizados</option>
-                    <option value="arealizar">Por Realizar</option>
-                </select>
-                <button id="btnSearch" type="button" class="btn btn-primary mb-2 mr-1">Filtrar</button>
+                    <div class="form-group col-md-4">
+                        <label for="inputSala">Sala</label>
+                        <input type="text" class="form-control" id="inputSala" maxlength="4" disabled>
+                    </div>
+                </div>
+
+                <!--Categorias-->
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="selCategorias">Categorias</label>
+                        <select id="selCategorias" disabled></select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <input type="text" id="inputCategoria" disabled>
+                    </div>
+                </div>
+                <!--Responsável-->
+                <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputResponsavel">Nome do Responsável</label>
+                    <input type="text" class="form-control" id="inputResponsavel" maxlength="30" disabled>
+                </div>
             </div>
+                <!-- Buttons-->
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary mb-2">Fechar</button>
 
-
-        </form>
-
-        <div id="catalog" class="card-group" >
-
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
 
 
-    </div>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

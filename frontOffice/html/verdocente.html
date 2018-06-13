@@ -8,14 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- SideBar CSS -->
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 
     <!--Custom JS-->
-    <script src="../js/utilizadores.js"></script>
-    <script src="index.js"></script>
+    <script src="../../models/utilizadores.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../../models/docentes.js"></script>
+    <script src="../js/verdocente.js"></script>
 
 
 </head>
@@ -26,20 +28,19 @@
         <!-- SIDEBAR-->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">Página Inicial</a>
             <li id="optEventos">
                 <a href="mostrarEventos.html">Eventos</a>
             </li>
             <li id="optCriarEventos">
-                <a href="#">Criar eventos</a>
+                <a href="criarEvento.html">Criar eventos</a>
             </li>
-            <a href="#">Parcerias</a>
-
+            <a href="mostarParcerias.html">Parcerias</a>
+            
             <li id="optGerirParcerias">
-                <a href="#">Gerir Parcerias</a>
+                <a href="#">Criar Parceria</a>
             </li>
-            <a href="#">Docentes</a>
-            <a href="#">Testemunhos</a>
+            <a href="mostrarDocentes.html">Docentes</a>
+            <a href="testemunhos.html">Testemunhos</a>
         </div>
         <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776; menu</span>
 
@@ -68,16 +69,65 @@
                 <li id="optRegister" class="nav-item">
                     <a data-toggle="modal" data-target="#registoModal" class="nav-link" href="#">Registo</a>
                 </li>
-                <!--OPÇÃO LOGOUT-->
-                <li id="optLogout" class="nav-item">
+                 <!--OPÇÃO LOGOUT-->
+                 <li id="optLogout" class="nav-item">
                     <a class="nav-link" href="#">Logout</a>
-                </li>
+                </li>                 
                 <!--OPÇÃO HI-->
-                <li id="optHi" class="nav-item"></li>
+                <li id="optHi" class="nav-item"></li> 
             </ul>
         </div>
     </nav>
 
+    <div class="row">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-10">
+
+            <br><br>
+            <!--Form-->
+            <form id="frmDocente">
+                <div class="form-row">
+                    <div class="form-group col-sm-4">
+                        <!--Image box-->
+                        <img src="" alt="Foto de perfil" height="200" width="100" id="foto">
+                    </div>
+                    <div class="form-group col-sm-8">
+
+                        <!--Campos-->
+                        <label for="inputNome">Nome</label>
+                        <input type="text" class="form-control" id="inputNome">
+      
+                         <label for="inputEmail">Email</label>
+                         <input type="text" class="form-control" id="inputEmail">
+
+                        <label for="inputUC">Unidades Curriculares</label>
+                        <input type="textarea" class="form-control" id="inputUC">
+                        <label for="inputformacao">Formação</label>
+                        <input type="textarea" class="form-control" id="inputformacao">
+                        <label for="inputCV">Pequeno CV</label>
+                        <input type="textarea" class="form-control" id="inputCV">
+
+
+
+                    </div>
+                </div>
+
+
+
+            </form>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
 
     <!--MODAL PARA REGISTO-->
     <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,7 +201,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <input type="submit" onclick="myFunction()" class="btn btn-primary" value="Login" />
+                    <input type="submit" class="btn btn-primary" value="Login" />
                 </div>
                 </form>
             </div>
@@ -161,74 +211,6 @@
     </div>
 
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-3">Criação de evento</h1>
-
-            <form id="frmEventos">
-
-
-                <div class="form-group row">
-                    <label for="inputNome" class="col-1 col-form-label">Nome:</label>
-                    <div class="col-11">
-                        <input type="text" value="Evento" class="form-control" id="inputNome" maxlength="30" required>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="inputData" class="col-1 col-form-label">Data:</label>
-                    <div class="col-3">
-                        <input type="date" class="form-control" id="inputData" required>
-                    </div>
-
-                    <label for="inputTime" class="col-1 col-form-label">Hora:</label>
-                    <div class="col-3">
-                        <input type="time" value="hh-mm AM" class="form-control" id="inputTime" required>
-                    </div>
-                    <label for="inputSala" class="col-1 col-form-label">Sala:</label>
-                    <div class="col-3">
-                        <input type="text" value="Sala" class="form-control" id="inputSala" maxlength="4" required>
-                    </div>
-                </div>
-
-
-                <div class="form-group row">
-                    <label for="selCategorias" class="col-1 col-form-label">Categorias:</label>
-                    <div class="col-1">
-                        <select id="selCategorias"></select>
-                    </div>
-                    <div class="col-5">
-                        <input type="text" value: "Escreva aqui as categorias" id="inputCategoria">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="inputResponsavel" class="col-1 col-form-label">Responsavel:</label>
-                    <div class="col-5">
-                        <input type="text" value="Evento" class="form-control" id="inputResponsavel" maxlength="30" required>
-                    </div>
-
-                    <label for="inputPoster" class="col-1 col-form-label">Imagem:</label>
-                    <div class="col-5">
-                            <input type="url" value="url" class="form-control" id="inputPoster" required>
-                        </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-primary mb-2">Gravar Evento</button>
-                        <button type="reset" class="btn btn-primary mb-2">Limpar</button>
-                    </div>
-                </div>
-
-
-            </form>
-        </div>
-    </div>
-
-
-
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -236,7 +218,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

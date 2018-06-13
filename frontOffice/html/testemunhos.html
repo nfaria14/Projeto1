@@ -8,15 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- SideBar CSS -->
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 
     <!--Custom JS-->
-    <script src="../models/utilizadores.js"></script>
-    <script src="js/login.js"></script>
-    <script src="index.js"></script>
+    <script src="../../models/utilizadores.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../../models/testemunhos.js"></script>
+    <script src="../js/testemunhos.js"></script>
     
 
 </head>
@@ -28,18 +29,18 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <li id="optEventos">
-                <a href="html/mostrarEventos.html">Eventos</a>
+                <a href="mostrarEventos.html">Eventos</a>
             </li>
             <li id="optCriarEventos">
-                <a href="#">Criar eventos</a>
+                <a href="criarEvento.html">Criar eventos</a>
             </li>
-            <a href="html/mostarParcerias.html">Parcerias</a>
+            <a href="mostarParcerias.html">Parcerias</a>
             
             <li id="optGerirParcerias">
                 <a href="#">Criar Parceria</a>
             </li>
-            <a href="html/mostrarDocentes.html">Docentes</a>
-            <a href="html/testemunhos.html">Testemunhos</a>
+            <a href="mostrarDocentes.html">Docentes</a>
+            <a href="#">Testemunhos</a>
         </div>
         <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776; menu</span>
 
@@ -73,54 +74,54 @@
                     <a class="nav-link" href="#">Logout</a>
                 </li>                 
                 <!--OPÇÃO HI-->
-                
-                <li id="optHi" class="nav-item dropdown"></li>  
+                <li id="optHi" class="nav-item"></li>  
             </ul>
         </div>
     </nav>
 
 
-    <!--ABOUT (jumbotron)-->
-    <div class="jumbotron">
-        <h1 class="display-4">Bem-vindo!</h1>
-        <p class="lead">Esta é uma plataforma de apoio à gestão de atividades da Licenciatura em Tecnologias e Sistemas de Informação para
-            a Web (TSIW)</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Aprenda mais!</a>
-    </div>
-
-    <!--CATALOG (jumbotron)-->
-    <div class="jumbotron">
-        <h1 class="display-4">Catálogo de Eventos</h1>
-        <p class="lead">Pesquise todos os eventos!</p>
-
-        <!--
-            FILTRO
-            - por AUTOR
-            - por PAÍS
-            ORDENAÇÃO
-            - mais recentes
-            ADICIONAR VIAGEM
-        -->
-        <form class="form-inline">
-            <div class="form-group mb-2">
-                <label for="selCategorias">Categorias</label>
-                <select id="selCategorias"></select>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <div class="row">
+                    <h1>Testemunhos</h1>
             </div>
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="selRecentes">Mais recentes</label>
-                <select id="selRecentes"></select>
+            <div class="row">
+                    <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#testemunhoModal" id="newTestemunho" value="Criar Testemunho">   
+
             </div>
-            <button id="btnSearch" type="button" class="btn btn-primary mb-2 mr-1">Procurar</button>
-
-        </form>
-
-        <div id="eventosCatalog" class="container">
+            <br>
+            <div class="container" id="testimonial"></div>
 
         </div>
     </div>
+<!--MODAL PARA Novo Testemunho-->
+<div class="modal fade" id="testemunhoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Testemunho</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmTestemunho">
+                        <!--NOME-->
+                        <div class="form-group">
+                            <label for="inputTexto">Texto:</label>
+                            <textarea required class="form-control" id="inputTexto" placeholder="Texto"></textarea>
+                        </div>
 
-
-
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input type="submit" class="btn btn-primary" value="Criar" />
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!--MODAL PARA REGISTO-->
     <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -211,7 +212,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

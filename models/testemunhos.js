@@ -41,8 +41,7 @@ class Testemunho{
         this._texto=value
     }
 }
-  let testeTestemunho=new Testemunho("random123@hotmail.com","Porreiro PAH!!!")
-testemunhos.push(testeTestemunho)
+ 
 
 //Função para atualizar array
 function rendertestemunhos(){

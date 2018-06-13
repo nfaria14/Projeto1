@@ -1,6 +1,6 @@
-
-
 window.onload = function () {
+    logout()
+
     //Renderizar eventos
     rendereventos()
     //Renderizar categorias
