@@ -1,4 +1,5 @@
 window.onload=function(){
+    renderUtilizadores()
     login()
     verificarlogin()
 

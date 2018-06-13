@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="../css/sidebar.css">
 
     <!--Custom JS-->
-    <script src="../../models/utilizadores.js"></script>
-    <script src="../js/login.js"></script>
-    <script src="../../models/testemunhos.js"></script>
-    <script src="../js/testemunhos.js"></script>
-    
+    <script src="../models/utilizadores.js"></script>
+    <script src="../models/categorias.js"></script>
+    <script src="../models/eventos.js"></script>
+    <script src="js/login.js"></script>
+    <script src="descricaoEvento.js"></script>
 
 </head>
 
@@ -40,7 +40,7 @@
                 <a href="#">Criar Parceria</a>
             </li>
             <a href="mostrarDocentes.html">Docentes</a>
-            <a href="#">Testemunhos</a>
+            <a href="testemunhos.html">Testemunhos</a>
         </div>
         <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776; menu</span>
 
@@ -74,54 +74,10 @@
                     <a class="nav-link" href="#">Logout</a>
                 </li>                 
                 <!--OPÇÃO HI-->
-                <li id="optHi" class="nav-item dropdown"></li>  
+                <li id="optHi" class="nav-item dropdown"></li> 
             </ul>
         </div>
     </nav>
-
-
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-11">
-            <div class="row">
-                    <h1>Testemunhos</h1>
-            </div>
-            <div class="row">
-                    <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#testemunhoModal" id="newTestemunho" value="Criar Testemunho">   
-
-            </div>
-            <br>
-            <div class="container" id="testimonial"></div>
-
-        </div>
-    </div>
-<!--MODAL PARA Novo Testemunho-->
-<div class="modal fade" id="testemunhoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Testemunho</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="frmTestemunho">
-                        <!--NOME-->
-                        <div class="form-group">
-                            <label for="inputTexto">Texto:</label>
-                            <textarea required class="form-control" id="inputTexto" placeholder="Texto"></textarea>
-                        </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <input type="submit" class="btn btn-primary" value="Criar" />
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <!--MODAL PARA REGISTO-->
     <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -202,17 +158,74 @@
         </div>
     </div>
 
-    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Meu Perfil</h1>
+
+            <form id="frmEventos">
+                <div class="form-row">
+                    <!--Campo nome-->
+                    <div class="form-group col-md-12">
+                        <label for="inputNome">Nome</label>
+                        <input type="text" class="form-control" id="inputNome" disabled>
+                    </div>
+                </div>
+
+                <!--DATA, HORA E SALA-->
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputData">Data</label>
+                        <input type="date" class="form-control" id="inputData" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputTime">Hora</label>
+                        <input type="time" class="form-control" id="inputTime" disabled>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="inputSala">Sala</label>
+                        <input type="text" class="form-control" id="inputSala" maxlength="4" disabled>
+                    </div>
+                </div>
+
+                <!--Categorias-->
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="selCategorias">Categorias</label>
+                        <select id="selCategorias" disabled></select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <input type="text" id="inputCategoria" disabled>
+                    </div>
+                </div>
+                <!--Responsável-->
+                <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputResponsavel">Nome do Responsável</label>
+                    <input type="text" class="form-control" id="inputResponsavel" maxlength="30" disabled>
+                </div>
+            </div>
+                <!-- Buttons-->
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary mb-2">Fechar</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
 
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

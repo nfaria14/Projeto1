@@ -2,6 +2,7 @@ window.onload = function () {
     rendereventos()
     rendercategorias()
     renderCats()
+    renderUtilizadores()
     login()
     verificarlogin()
 
