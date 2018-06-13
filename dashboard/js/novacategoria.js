@@ -4,15 +4,16 @@ window.onload = function () {
 
     //Atualizar o array
     rendercategorias()
-  //Ir buscar a tabela
-  let tblCat = document.getElementById("tblCategorias")
+    rendereventos()
+    //Ir buscar a tabela
+    let tblCat = document.getElementById("tblCategorias")
     //Mostrar a tabela
     renderTable()
 
     //Ir lbuscar a categoria
     let cat = document.getElementById("inputCategoria")
 
-  
+
     //Adicionar eventlistener
 
     let frmCat = document.getElementById("frmCategorias")
@@ -50,7 +51,7 @@ window.onload = function () {
     function renderTable() {
         let strHtml = "<thead class='thead-dark'><tr>" +
             "<th class='w-2'>#</th>" +
-            "<th class='w-50'>Categoria</th>"+
+            "<th class='w-50'>Categoria</th>" +
             "</tr>" +
             "</thead><tbody>"
 
@@ -58,7 +59,7 @@ window.onload = function () {
             strHtml += "<tr>" +
                 "<td>" + categorias[i]._id + "</td>" +
                 "<td>" + categorias[i]._nome + "</td>" +
-                "<td>"+
+                "<td>" +
                 "<a id='" + categorias[i]._id + "' class='remove'><i class='fa fa-remove'></i></a> " +
                 "</td>" +
                 "</tr>"
@@ -80,15 +81,40 @@ window.onload = function () {
 
 
     }
+
+
     //Função para eliminar por ID
     // Remove game based on its ID
-function removeCatById(id) {
-    for (let i = 0; i < categorias.length; i++) {
-        if(categorias[i].id == id) {
-            categorias.splice(i, 1)
-            //Atualizaar local storage        
-            localStorage.setItem("categorias", JSON.stringify(categorias))
-        }                  
-    }
-}
+    function removeCatById(id) {
+       
+        let categoriapararemover
+        let str=prompt("Todos os eventos associados a essa categoria serão removidos deseja prosseguir?","Sim")
+        if(str=="Sim"){
+            for (let i = 0; i < categorias.length; i++) {
+                if (categorias[i]._id == id) {
+                  categoriapararemover=categorias[i]._nome
+                  
+                  categorias.splice(i, 1)
+                }
+            }
+            console.log("Isto vai ser removido"+categoriapararemover)
+            for(let j=0;j<eventos.length;j++){
+                if(eventos[j]._categoria.indexOf(categoriapararemover)==true){
+                    console.log("entra")
+                    console.log(j+categoriapararemover)
+                   eventos.splice(j, 1)
+                }
+            }
+            
+                   
+    
+                    //Atualizaar local storage        
+                    localStorage.setItem("categorias", JSON.stringify(categorias))
+                    localStorage.setItem("eventos", JSON.stringify(eventos))
+    
+    
+        }
+
+        }
+        
 }

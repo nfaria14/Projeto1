@@ -62,6 +62,7 @@ function removeTestemunhoById(id) {
     for (let i = 0; i < testemunhos.length; i++) {
         if(testemunhos[i]._id == id) {
             testemunhos.splice(i, 1)
+            localStorage.setItem("testemunhos",JSON.stringify(testemunhos))
         }                  
     }
 }
