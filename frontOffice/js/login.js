@@ -1,3 +1,4 @@
+let userName = ""
 function login(){
     // Referências para elementos HTML
     let optLogin = document.getElementById("optLogin")
@@ -36,7 +37,7 @@ function login(){
 
         // Iterar sobre o array e verificar se o utilizador já existe
         let userExists = false
-        let userName = ""
+        
         let userID
         for (var i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value) {
@@ -172,12 +173,13 @@ function verificarlogin(){
 
         for(let i=0;i<utilizadores.length;i++){
                 if(utilizadores[i]._id==userID){
+                    userName=utilizadores[i]._nome
                     optLogin.style.display = 'none'
                     optRegister.style.display = 'none'
                     optLogout.style.display = 'block'
                     optHi.innerHTML = "<a  <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
                     userName + "</a>"+`<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="#">Perfil</a></div>`                        
-               
+                    console.log(userName)
                     optHi.style.display = 'block'
                     if (utilizadores[i]._tipo == 1) {
 
