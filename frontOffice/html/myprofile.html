@@ -15,8 +15,7 @@
 
     <!--Custom JS-->
     <script src="../../models/utilizadores.js"></script>
-    <script src="../../models/categorias.js"></script>
-    <script src="../../models/eventos.js"></script>
+    <script src="../../models/docentes.js"></script>
     <script src="../js/login.js"></script>
     <script src="../js/myprofile.js"></script>
 
@@ -184,6 +183,7 @@
                         <input type="textarea" class="form-control" id="inputformacao">
                         <label for="inputCV">Pequeno CV</label>
                         <input type="textarea" class="form-control" id="inputCV">
+                        <input id="btnalterações" type="submit" class="btn btn-primary mb-2 mr-1" value="Guardar Alterações">
 
 
 
@@ -195,19 +195,24 @@
             </form>
             <form id="frmEstudante">
                 <div class="form-row">
-                    <div class="form-group col-sm-4">
-                        <!--Image box-->
-                        <img src="" alt="Foto de perfil" height="200" width="100" id="foto">
-                    </div>
                     <div class="form-group col-sm-8">
-
                         <!--Campos-->
                         <label for="inputNome">Nome</label>
                         <input type="text" class="form-control" id="inputNome">
       
                          <label for="inputEmail">Email</label>
                          <input type="text" class="form-control" id="inputEmail">
+
+                         <!--Alterar Password-->
+                        <label for="oldPassword">Password Antiga</label>
+                        <input type="password" class="form-control" id="oldPassword">
+
+                        <label for="newPassword">Password Nova</label>
+                        <input type="password" class="form-control" id="newPassword">
+                        <input id="btnalterações" type="submit" class="btn btn-primary mb-2 mr-1" value="Guardar Alterações">
+
                     </div>
+                    
                 </div>
 
 
