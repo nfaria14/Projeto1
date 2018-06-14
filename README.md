@@ -47,7 +47,6 @@ Já está
 
 FALTA:
 
-Ao remover Categorias apagar os eventos com essas categorias //ERRO
 Fazer myprofile
 
 EVENTOS: COMENTÁRIOS E PONTUAÇÕES

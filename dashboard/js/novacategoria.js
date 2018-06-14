@@ -87,23 +87,27 @@ window.onload = function () {
     // Remove game based on its ID
     function removeCatById(id) {
        
-        let categoriapararemover
+        let categoriapararemover=""
         let str=prompt("Todos os eventos associados a essa categoria serão removidos deseja prosseguir?","Sim")
         if(str=="Sim"){
             for (let i = 0; i < categorias.length; i++) {
                 if (categorias[i]._id == id) {
                   categoriapararemover=categorias[i]._nome
                   
-                  categorias.splice(i, 1)
+                  let a = categorias.splice(i, 1)
+                  console.log(a)
                 }
             }
-            console.log("Isto vai ser removido"+categoriapararemover)
+            console.log("Isto vai ser removido - "+categoriapararemover)
             for(let j=0;j<eventos.length;j++){
-                if(eventos[j]._categoria.indexOf(categoriapararemover)==true){
-                    console.log("entra")
-                    console.log(j+categoriapararemover)
-                   eventos.splice(j, 1)
+                let campos=eventos[j]._categoria.split(";")
+                for(let k=0;k<campos.length;k++){
+                    if(campos[k]==categoriapararemover){
+                        campos.splice(k,1)
+                    }
                 }
+                console.log(campos.toString())
+                eventos[j]._categoria=campos.toString()
             }
             
                    
