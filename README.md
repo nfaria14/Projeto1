@@ -47,8 +47,6 @@ Já está
 
 FALTA:
 
-Fazer myprofile
-
 EVENTOS: COMENTÁRIOS E PONTUAÇÕES
 
 MELHORAR DESIGN
