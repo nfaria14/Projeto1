@@ -54,12 +54,12 @@ function login() {
             // ADICIONADO DIA 2 Verificar se é admin
             for (let i = 0; i < utilizadores.length; i++) {
                 if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value && utilizadores[i].tipo == 2) {
-
+                    console.log("Entra?")
                     window.location.replace('../../dashboard/index.html')
 
 
                 } else {
-
+                    console.log("HERE I")
 
                     localStorage.setItem("userID", userID)
 
@@ -73,7 +73,7 @@ function login() {
                     optHi.innerHTML = "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
                         userName + "</a>" + `<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="myprofile.html">Perfil</a></div>`
                     optHi.style.display = 'block'
-                    window.location.reload()
+                    
                 }
             }
             //MOSTRAR AS OPÇÕES DA NAVBAR DO DOCENTE 
@@ -84,6 +84,7 @@ function login() {
 
                         optEventos.style.display = 'block'
                         optParcerias.style.display = 'block'
+                        window.location.reload()
                     }
                 }
             }
