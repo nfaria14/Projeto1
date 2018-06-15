@@ -73,7 +73,7 @@ function login() {
                     optHi.innerHTML = "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
                         userName + "</a>" + `<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="myprofile.html">Perfil</a></div>`
                     optHi.style.display = 'block'
-
+                    window.location.reload()
                 }
             }
             //MOSTRAR AS OPÇÕES DA NAVBAR DO DOCENTE 

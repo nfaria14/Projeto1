@@ -27,7 +27,23 @@ window.onload = function () {
 
     console.log(selCategorias.innerHTML)
     renderizararray()
-    renderTable()
+    let userID=localStorage.getItem("userID")
+    if(userID!=0){
+        for(let i=0;i<utilizadores.length;i++){
+            if(utilizadores[i]._id==userID){
+                if(utilizadores[i]._tipo==1){
+                    renderTableDocente()
+                }else{
+    
+                    renderTable()
+                }
+            }
+        }
+    }else{
+        renderTable()
+    }
+    
+  
     searchBtn.addEventListener("click", function () {
         let cat = a.options[a.selectedIndex].innerHTML
         switch (selFiltros.value) {
@@ -35,7 +51,20 @@ window.onload = function () {
                 tblEventos.innerHTML = ""
                 console.log("A categoria -" + cat)
                 renderizararray(cat)
-                renderTable()
+                if(userID!=0){
+                    for(let i=0;i<utilizadores.length;i++){
+                        if(utilizadores[i]._id==userID){
+                            if(utilizadores[i]._tipo==1){
+                                renderTableDocente()
+                            }else{
+                
+                                renderTable()
+                            }
+                        }
+                    }
+                }else{
+                    renderTable()
+                }
                 break;
             case "recentes":
                 tblEventos.innerHTML = ""
@@ -47,7 +76,20 @@ window.onload = function () {
                 ordenararrayRecentes(temparray)
                 console.log("O ARRAY DEPOIS" + temparray)
                 console.log(temparray)
-                renderTable()
+                if(userID!=0){
+                    for(let i=0;i<utilizadores.length;i++){
+                        if(utilizadores[i]._id==userID){
+                            if(utilizadores[i]._tipo==1){
+                                renderTableDocente()
+                            }else{
+                
+                                renderTable()
+                            }
+                        }
+                    }
+                }else{
+                    renderTable()
+                }
                 break;
             case "realizados"://Working
                 tblEventos.innerHTML = ""
@@ -55,7 +97,16 @@ window.onload = function () {
                 console.log("A categoria -" + cat)
                 renderizararray(cat)
                 filtrarRealizados(temparray)
-                renderTable()
+                for(let i=0;i<utilizadores.length;i++){
+                    if(utilizadores[i]._id==userID){
+                        if(utilizadores[i]._tipo==1){
+                            renderTableDocente()
+                        }else{
+            
+                            renderTable()
+                        }
+                    }
+                }
                 break;
             case "arealizar"://WORKING
                 tblEventos.innerHTML = ""
@@ -65,7 +116,20 @@ window.onload = function () {
                 renderizararray(cat)
                 filtrarPorRealizar(temparray)
                 console.log(temparray)
-                renderTable()
+                if(userID!=0){
+                    for(let i=0;i<utilizadores.length;i++){
+                        if(utilizadores[i]._id==userID){
+                            if(utilizadores[i]._tipo==1){
+                                renderTableDocente()
+                            }else{
+                
+                                renderTable()
+                            }
+                        }
+                    }
+                }else{
+                    renderTable()
+                }
                 break;
             case "pontuacoes":
                 break;
@@ -117,6 +181,74 @@ function renderizararray(cat = "") {
         if (cat == "Lista de categorias" || eventos[i]._categoria.indexOf(cat) != -1) {
             temparray.push(eventos[i])
 
+        }
+    }
+}
+
+function renderTableDocente() {
+    let strHtmlCard = ""
+    for (let i = 0; i < temparray.length; i++) {
+        // Inicia a linha
+        if (i % 3== 0) {
+            strHtmlCard += `<div class="row">`
+        }
+
+        // Cria a card
+        strHtmlCard += `<div class="col-sm-1"></div><div class="col-sm-3">
+                <div class="card" >
+                    <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">${temparray[i]._nome}</h5>
+                        <p class="card-text">${temparray[i]._categoria}</p>`
+
+        strHtmlCard += `<a id="${temparray[i]._id}" href="descricaoEvento.html" class="btn btn-warning edit" >Editar</a>`
+        strHtmlCard += `<a id="${temparray[i]._id}" href="#" class="btn btn-danger remove">REMOVE</a>`
+
+        strHtmlCard += `</div>
+                </div>      
+            </div>`
+
+        // Fecha a linha
+        if (i % 3== 2) {
+            strHtmlCard += `</div>`
+        }
+
+    }
+    let tblEventos = document.getElementById("catalog")
+
+    tblEventos.innerHTML = strHtmlCard
+
+    // Obter todos os botões REMOVE
+    let btnRemove = document.getElementsByClassName("remove")
+    console.log(btnRemove.length)
+    // Para cada botão, adicionar um listener para escutar pelo evento clique
+    for (let i = 0; i < btnRemove.length; i++) {
+        btnRemove[i].addEventListener("click", function () {
+            // By clicking in a specific game, remove it from the array
+            let eventoId = btnRemove[i].getAttribute("id")
+            removeeventoById(eventoId)
+            renderTable()
+        })
+    }
+    //Obter todos os botões EDIT
+    let btnEdit = document.getElementsByClassName("edit")
+    //Criar um campo na base de dados para guardar o evento que se vai editar
+    for (let i = 0; i < btnEdit.length; i++) {
+        btnEdit[i].addEventListener("click", function () {
+            let eventoID = btnEdit[i].getAttribute("id")
+            localStorage.setItem("eventoID", eventoID)
+            console.log(eventoID)
+        })
+
+    }
+}
+function removeeventoById(id) {
+    console.log("ID: " + id)
+    for (let i = 0; i < eventos.length; i++) {
+        if (eventos[i]._id == id) {
+            eventos.splice(i, 1)
+            renderizararray()
+            localStorage.setItem("eventos", JSON.stringify(eventos))
         }
     }
 }
