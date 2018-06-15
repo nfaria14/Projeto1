@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="../css/sidebar.css">
 
     <!--Custom JS-->
-    <script src="../models/utilizadores.js"></script>
-    <script src="js/login.js"></script>
-
+    <script src="../../models/utilizadores.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../../models/categorias.js"></script>
+    <script src="../../models/eventos.js"></script>
+    <script src="../js/criarEvento.js"></script>
 
 </head>
 
@@ -26,14 +28,14 @@
         <!-- SIDEBAR-->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">Página Inicial</a>
+            <a href="../index.html">Página Inicial</a>
             <li id="optEventos">
-                <a href="html/mostrarEventos.html">Eventos</a>
+                <a href="mostrarEventos.html">Eventos</a>
             </li>
             <li id="optCriarEventos">
-                <a href="html/criarEvento.html">Criar eventos</a>
+                <a href="criarEvento.html">Criar eventos</a>
             </li>
-            <a href="html/mostarParcerias.html">Parcerias</a>
+            <a href="mostarParcerias.html">Parcerias</a>
 
             <li id="optGerirParcerias">
                 <a href="#">Criar Parceria</a>
@@ -210,10 +212,10 @@
 
                     <label for="inputPoster" class="col-1 col-form-label">Imagem:</label>
                     <div class="col-5">
-                            <input type="url" value="url" class="form-control" id="inputPoster" required>
-                        </div>
+                        <input type="url" value="url" class="form-control" id="inputPoster" required>
+                    </div>
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-primary mb-2">Gravar Evento</button>
