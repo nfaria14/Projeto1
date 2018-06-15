@@ -52,3 +52,8 @@ EVENTOS: COMENTÁRIOS E PONTUAÇÕES
 MELHORAR DESIGN
 
 TESTES
+
+
+//Pontuações
+
+Ao pontuar o evento verificar se aquele user ja pontou aquele evento

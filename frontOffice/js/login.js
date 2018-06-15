@@ -1,4 +1,4 @@
-let userName = ""
+ let userName = ""
 function login() {
     // Referências para elementos HTML
     let optLogin = document.getElementById("optLogin")
