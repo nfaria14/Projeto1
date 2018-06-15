@@ -76,7 +76,7 @@ function login(){
                     optRegister.style.display = 'none'
                     optLogout.style.display = 'block'
                     optHi.innerHTML = "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
-                        userName + "</a>"+`<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="#">Perfil</a></div>`                        
+                        userName + "</a>"+`<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="html/myprofile.html">Perfil</a></div>`                        
                     optHi.style.display = 'block'
 
                 }
@@ -178,7 +178,7 @@ function verificarlogin(){
                     optRegister.style.display = 'none'
                     optLogout.style.display = 'block'
                     optHi.innerHTML = "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
-                    userName + `</a><div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="myprofile.html">Perfil</a></div>`                        
+                    userName + `</a><div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="html/myprofile.html">Perfil</a></div>`                        
                     console.log(userName)
                     optHi.style.display = 'block'
                     if (utilizadores[i]._tipo == 1) {

@@ -14,11 +14,10 @@
     <link rel="stylesheet" href="../css/sidebar.css">
 
     <!--Custom JS-->
-    <script src="../models/utilizadores.js"></script>
-    <script src="../models/categorias.js"></script>
-    <script src="../models/eventos.js"></script>
-    <script src="js/login.js"></script>
-    <script src="descricaoEvento.js"></script>
+    <script src="../../models/utilizadores.js"></script>
+    <script src="../../models/docentes.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/myprofile.js"></script>
 
 </head>
 
@@ -163,57 +162,68 @@
         <div class="jumbotron">
             <h1 class="display-3">Meu Perfil</h1>
 
-            <form id="frmEventos">
+            <form id="frmDocente">
                 <div class="form-row">
-                    <!--Campo nome-->
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-sm-4">
+                        <!--Image box-->
+                        <img src="" alt="Foto de perfil" height="200" width="100" id="foto">
+                        <br>
+                        <input type="url" id="novafoto">
+                    </div>
+                    <div class="form-group col-sm-8">
+
+                        <!--Campos-->
                         <label for="inputNome">Nome</label>
-                        <input type="text" class="form-control" id="inputNome" disabled>
+                        <input type="text" class="form-control" id="inputNome">
+      
+                         <label for="inputEmail">Email</label>
+                         <input type="text" class="form-control" id="inputEmail">
+                        <!--Alterar Password-->
+                        <label for="oldPassword">Password Antiga</label>
+                        <input type="password" class="form-control" id="oldPassword">
+
+                        <label for="newPassword">Password Nova</label>
+                        <input type="password" class="form-control" id="newPassword">
+                        <label for="inputUC">Unidades Curriculares</label>
+                        <input type="textarea" class="form-control" id="inputUC">
+                        <label for="inputformacao">Formação</label>
+                        <input type="textarea" class="form-control" id="inputformacao">
+                        <label for="inputCV">Pequeno CV</label>
+                        <input type="textarea" class="form-control" id="inputCV">
+                        <input id="btnalterações" type="submit" class="btn btn-primary mb-2 mr-1" value="Guardar Alterações">
+
+
+
                     </div>
                 </div>
 
-                <!--DATA, HORA E SALA-->
+
+
+            </form>
+            <form id="frmEstudante">
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputData">Data</label>
-                        <input type="date" class="form-control" id="inputData" disabled>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputTime">Hora</label>
-                        <input type="time" class="form-control" id="inputTime" disabled>
-                    </div>
+                    <div class="form-group col-sm-8">
+                        <!--Campos-->
+                        <label for="inputNome">Nome</label>
+                        <input type="text" class="form-control" id="inputNome1">
+      
+                         <label for="inputEmail1">Email</label>
+                         <input type="text" class="form-control" id="inputEmail1">
 
-                    <div class="form-group col-md-4">
-                        <label for="inputSala">Sala</label>
-                        <input type="text" class="form-control" id="inputSala" maxlength="4" disabled>
-                    </div>
-                </div>
+                         <!--Alterar Password-->
+                        <label for="oldPassword1">Password Antiga</label>
+                        <input type="password" class="form-control" id="oldPassword1">
 
-                <!--Categorias-->
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="selCategorias">Categorias</label>
-                        <select id="selCategorias" disabled></select>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <input type="text" id="inputCategoria" disabled>
-                    </div>
-                </div>
-                <!--Responsável-->
-                <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="inputResponsavel">Nome do Responsável</label>
-                    <input type="text" class="form-control" id="inputResponsavel" maxlength="30" disabled>
-                </div>
-            </div>
-                <!-- Buttons-->
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-primary mb-2">Fechar</button>
+                        <label for="newPassword1">Password Nova</label>
+                        <input type="password" class="form-control" id="newPassword1">
+                        <input id="btnalterações" type="submit" class="btn btn-primary mb-2 mr-1" value="Guardar Alterações">
 
                     </div>
+                    
                 </div>
+
+
+
             </form>
         </div>
 
