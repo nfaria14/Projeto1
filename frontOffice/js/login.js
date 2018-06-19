@@ -65,7 +65,6 @@ function login(){
 
                 } else {
 
-
                     localStorage.setItem("userID", userID)
 
 
@@ -113,6 +112,7 @@ function login(){
         optEventos.style.display = 'none'
         optParcerias.style.display = 'none'
         localStorage.setItem("userID",0)
+        window.location.replace('../index.html')
     })
 
     // SUBMISSÃO DE REGISTO

@@ -13,10 +13,14 @@
     <!-- SideBar CSS -->
     <link rel="stylesheet" href="../css/sidebar.css">
 
+    <!-- Comentarios CSS -->
+    <link rel="stylesheet" href="../css/comentarios.css">
+
     <!--Custom JS-->
     <script src="../../models/utilizadores.js"></script>
     <script src="../../models/categorias.js"></script>
     <script src="../../models/eventos.js"></script>
+    <script src="../../models/comentarios.js"></script>
     <script src="../js/login.js"></script>
     <script src="../js/descricaoEvento.js"></script>
 
@@ -29,18 +33,18 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <li id="optEventos">
-                <a href="mostrarEventos.html">Eventos</a>
-            </li>
-            <li id="optCriarEventos">
-                <a href="criarEvento.html">Criar eventos</a>
-            </li>
-            <a href="mostarParcerias.html">Parcerias</a>
-            
-            <li id="optGerirParcerias">
-                <a href="#">Criar Parceria</a>
-            </li>
-            <a href="mostrarDocentes.html">Docentes</a>
-            <a href="testemunhos.html">Testemunhos</a>
+                    <a href="mostrarEventos.html">Eventos</a>
+                </li>
+                <li id="optCriarEventos">
+                    <a href="criarEvento.html">Criar eventos</a>
+                </li>
+                <a href="mostarParcerias.html">Parcerias</a>
+                
+                <li id="optGerirParcerias">
+                    <a href="criarParceria.html">Criar Parceria</a>
+                </li>
+                <a href="mostrarDocentes.html">Docentes</a>
+                <a href="testemunhos.html">Testemunhos</a>
         </div>
         <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776; menu</span>
 
@@ -69,12 +73,12 @@
                 <li id="optRegister" class="nav-item">
                     <a data-toggle="modal" data-target="#registoModal" class="nav-link" href="#">Registo</a>
                 </li>
-                 <!--OPÇÃO LOGOUT-->
-                 <li id="optLogout" class="nav-item">
+                <!--OPÇÃO LOGOUT-->
+                <li id="optLogout" class="nav-item">
                     <a class="nav-link" href="#">Logout</a>
-                </li>                 
+                </li>
                 <!--OPÇÃO HI-->
-                <li id="optHi" class="nav-item dropdown"></li> 
+                <li id="optHi" class="nav-item dropdown"></li>
             </ul>
         </div>
     </nav>
@@ -159,14 +163,16 @@
     </div>
 
 
+    <!--DESCRICAO DO EVENTO-->
     <div class="container">
         <div class="jumbotron">
             <h1 class="display-3">Descrição do Evento</h1>
 
             <form id="frmEventos">
+
                 <div class="form-row">
                     <!--Campo nome-->
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-5">
                         <label for="inputNome">Nome</label>
                         <input type="text" class="form-control" id="inputNome" disabled>
                     </div>
@@ -174,16 +180,19 @@
 
                 <!--DATA, HORA E SALA-->
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-5">
                         <label for="inputData">Data</label>
                         <input type="date" class="form-control" id="inputData" disabled>
                     </div>
-                    <div class="form-group col-md-4">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
                         <label for="inputTime">Hora</label>
                         <input type="time" class="form-control" id="inputTime" disabled>
                     </div>
-
-                    <div class="form-group col-md-4">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
                         <label for="inputSala">Sala</label>
                         <input type="text" class="form-control" id="inputSala" maxlength="4" disabled>
                     </div>
@@ -191,31 +200,48 @@
 
                 <!--Categorias-->
                 <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="selCategorias">Categorias</label>
-                        <select id="selCategorias" disabled></select>
-                    </div>
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-5">
+                        <label for="selCategorias">Categorias</label>
                         <input type="text" id="inputCategoria" disabled>
                     </div>
                 </div>
                 <!--Responsável-->
                 <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="inputResponsavel">Nome do Responsável</label>
-                    <input type="text" class="form-control" id="inputResponsavel" maxlength="30" disabled>
+                    <div class="form-group col-md-5">
+                        <label for="inputResponsavel">Nome do Responsável</label>
+                        <input type="text" class="form-control" id="inputResponsavel" maxlength="30" disabled>
+                    </div>
                 </div>
-            </div>
                 <!-- Buttons-->
                 <div class="form-row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-5">
                         <button type="submit" class="btn btn-primary mb-2">Fechar</button>
 
                     </div>
                 </div>
+
             </form>
         </div>
+
+
+        <!-- NOVO COMENTARIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
+        <div class="container">
+            <div class="col-lg-4 col-sm-12 text-center">
+                <div class="well">
+                    <h4>Comentários</h4>
+                    <form id="frmComentario2">
+                        <div class="input-group" id= "validar">
+                            <input required type="text" id="inputTexto2" class="form-control input-sm chat-input" placeholder="Escreva um comentario..."/>
+                            <input type="button" class="btn btn-primary" id="newComentario2" value="Comentar">  
+                        </div>
+                    </form>
+
+                    <div class="container" id="testimonial2"> </div>
+                </div>
+            </div>
+        </div>
+        
 
 
         <!-- jQuery library -->

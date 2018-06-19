@@ -129,7 +129,7 @@ function renderTable() {
             strHtmlCard += `<div class="row">`
         }
 
-        
+            
         // Cria a card
         strHtmlCard += `<div class="col-sm-4">
                 <div class="card" >
