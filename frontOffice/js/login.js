@@ -1,9 +1,9 @@
-let userName = ""
-function login(){
+ let userName = ""
+function login() {
     // Referências para elementos HTML
     let optLogin = document.getElementById("optLogin")
     let optRegister = document.getElementById("optRegister")
-    let optLogout=document.getElementById("optLogout")
+    let optLogout = document.getElementById("optLogout")
     // Esconder opções de autenticação
     optLogout.style.display = 'none'
     optHi.style.display = 'none'
@@ -37,7 +37,7 @@ function login(){
 
         // Iterar sobre o array e verificar se o utilizador já existe
         let userExists = false
-        
+
         let userID
         for (let i = 0; i < utilizadores.length; i++) {
             if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value) {
@@ -54,16 +54,15 @@ function login(){
             // ADICIONADO DIA 2 Verificar se é admin
             for (let i = 0; i < utilizadores.length; i++) {
                 if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value && utilizadores[i].tipo == 2) {
-                    if(window.location.href=="file:///C:/Users/j_hen/Desktop/ESMAD/Projeto/Projeto1/frontOffice/index.html"){
-                        console.log("Entra")
-                        window.location.replace('../dashboard/index.html')
+                    console.log("Entra?")
+                    window.location.replace('../../dashboard/index.html')
 
-                    }else{
-                        window.location.replace('../../dashboard/index.html')
-
-                    }
 
                 } else {
+<<<<<<< HEAD
+=======
+                    console.log("HERE I")
+>>>>>>> 7ffb509b575ce9cecf4c6c75cd79879bad9ca5e6
 
                     localStorage.setItem("userID", userID)
 
@@ -75,9 +74,9 @@ function login(){
                     optRegister.style.display = 'none'
                     optLogout.style.display = 'block'
                     optHi.innerHTML = "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
-                        userName + "</a>"+`<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="html/myprofile.html">Perfil</a></div>`                        
+                        userName + "</a>" + `<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="myprofile.html">Perfil</a></div>`
                     optHi.style.display = 'block'
-
+                    
                 }
             }
             //MOSTRAR AS OPÇÕES DA NAVBAR DO DOCENTE 
@@ -88,6 +87,7 @@ function login(){
 
                         optEventos.style.display = 'block'
                         optParcerias.style.display = 'block'
+                        window.location.reload()
                     }
                 }
             }
@@ -111,8 +111,13 @@ function login(){
         optHi.style.display = 'none'
         optEventos.style.display = 'none'
         optParcerias.style.display = 'none'
+<<<<<<< HEAD
         localStorage.setItem("userID",0)
         window.location.replace('../index.html')
+=======
+        localStorage.setItem("userID", 0)
+        window.location.replace("index.html")
+>>>>>>> 7ffb509b575ce9cecf4c6c75cd79879bad9ca5e6
     })
 
     // SUBMISSÃO DE REGISTO
@@ -161,32 +166,32 @@ function login(){
         event.preventDefault()
     })
 
-    
+
 }
 
 
-function verificarlogin(){
-    if(localStorage.getItem("userID")){
-        let userID=localStorage.getItem("userID")
+function verificarlogin() {
+    if (localStorage.getItem("userID")) {
+        let userID = localStorage.getItem("userID")
         let optEventos = document.getElementById("optCriarEventos")
         let optParcerias = document.getElementById("optGerirParcerias")
 
-        for(let i=0;i<utilizadores.length;i++){
-                if(utilizadores[i]._id==userID){
-                    userName=utilizadores[i]._nome
-                    optLogin.style.display = 'none'
-                    optRegister.style.display = 'none'
-                    optLogout.style.display = 'block'
-                    optHi.innerHTML = "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
-                    userName + `</a><div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="html/myprofile.html">Perfil</a></div>`                        
-                    console.log(userName)
-                    optHi.style.display = 'block'
-                    if (utilizadores[i]._tipo == 1) {
+        for (let i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i]._id == userID) {
+                userName = utilizadores[i]._nome
+                optLogin.style.display = 'none'
+                optRegister.style.display = 'none'
+                optLogout.style.display = 'block'
+                optHi.innerHTML = "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
+                    userName + `</a><div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="myprofile.html">Perfil</a></div>`
+                console.log(userName)
+                optHi.style.display = 'block'
+                if (utilizadores[i]._tipo == 1) {
 
-                        optEventos.style.display = 'block'
-                        optParcerias.style.display = 'block'
-                    }   
+                    optEventos.style.display = 'block'
+                    optParcerias.style.display = 'block'
                 }
+            }
 
         }
 
