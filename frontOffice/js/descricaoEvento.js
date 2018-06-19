@@ -17,8 +17,16 @@ window.onload = function () {
     if(localStorage.getItem("userID")!=0){
         logged=true
     }
+    
+
     //EVENTOID
     let eventoid = localStorage.getItem("eventoID")
+    let jaPontoou=false
+    for(let i=0;i<eventos.length;i++){
+            if(eventos[i]._id==eventoid){
+                document.getElementById('pontuacaoMedia').innerHTML = `${eventos[i]._pontuacao} <small style="font-size:20px">/5</small>`
+            }
+    }
     //Referencias HTML
     let nome = document.getElementById("inputNome")
     let data = document.getElementById("inputData")
@@ -60,7 +68,7 @@ window.onload = function () {
         console.log("ENTREIIIIIIIIIIIIIIIIIIII")
         let texto2 = document.getElementById("inputTexto2")
 
-        let novoComent2 = new Comentario(nome2, evento, data2, texto2.value)
+        let novoComent2 = new Comentario(nome2, evento, texto2.value)
         comentarios.push(novoComent2)
         localStorage.setItem("comentarios", JSON.stringify(comentarios))
         renderTestimonial()
@@ -191,24 +199,28 @@ function removeComentarioById(id) {
 
 //PONTUAR
 let valorDeMercado = 0; //Valor que vai seer adicionado à pontuação
-
+let eventito = ""
 function botaoPontuar(e) { //Isto vai abrir um botão para deixar pontuar, cada utilizador só vai pontuar o evento 1 vez, secalhar adicionar um bolleano para dizer se já pontoou ou não
 
     let eventoID=localStorage.getItem("eventoID")
 
-    let eventito = ""
+    
 
     for(let i=0;i<eventos.length;i++){
         if(eventos[i]._id==eventoID){
-            eventito=evento[i]
+            eventito=new Evento(eventos[i]._nome,eventos[i]._data,eventos[i]._hora,eventos[i]._sala,eventos[i]._categoria,eventos[i]._responsavel,eventos[i]._imagem,eventos[i]._descricao, eventos[i]._descricao)
+            console.log(eventoID)
+            eventito._id=eventoID
+            console.log("o evento defenido é:"+eventito.id)
+            //console.log("ID DO EVENTITO AO CRIAR"+eventito_id)
         }
     }
     let jaPontoou = false
 
-    if (utilizadores[indexUtilizador].pontoou.length > 0) {
-        for (let i = 0; i < utilizadores[indexUtilizador].pontoou.length; i++) {
-            console.log(eventito._id)
-            if (utilizadores[indexUtilizador].pontoou[i] == eventito._id) {
+    if (utilizadores[indexUtilizador]._pontoou.length > 0) {
+        for (let i = 0; i < utilizadores[indexUtilizador]._pontoou.length; i++) {
+            console.log("ID DO EVENTO"+eventito._id)
+            if (utilizadores[indexUtilizador]._pontoou[i] == eventito._id) {
                 jaPontoou = true
             }
         }
@@ -245,28 +257,24 @@ function botaoPontuar(e) { //Isto vai abrir um botão para deixar pontuar, cada 
 }
 
 function realmentePontuar() { //Em principio as matemáticas vão ser feitas na classe
-    let a = ""
-    if (localStorage.getItem('EventoMostrar')) {
-        a = JSON.parse(localStorage.getItem('EventoMostrar'))
-    }
-
+    console.log("o evento a mostrar é este:"+eventito)
     let elIndex = 0;
     for (let i = 0; i < eventos.length; i++) {
-        if (eventos[i].id == a._id) {
+        if (eventos[i].id == eventito._id) {
             elIndex = i
         }
     }
 
-    console.log(eventos[elIndex].nome) //Dá o que quero
+    console.log(eventos[elIndex]._nome) //Dá o que quero
     console.log(valorDeMercado)
     eventos[elIndex].pontuacao = valorDeMercado
-    document.getElementById('pontuacaoMedia').innerHTML = `${eventos[elIndex].pontuacao} <small style="font-size:20px">/5</small>`
+    document.getElementById('pontuacaoMedia').innerHTML = `${eventos[elIndex]._pontuacao} <small style="font-size:20px">/5</small>`
     localStorage.removeItem('eventos')
     localStorage.setItem('eventos', JSON.stringify(eventos))
     //Fazer com que o utilizador não possa voltar a pontuar
-    utilizadores[indexUtilizador].pontoou = a._id
+    console.log("ID DO EVENTO"+eventito._id)
+    utilizadores[indexUtilizador]._pontoou += eventito._id
     localStorage.setItem('utilizadores', JSON.stringify(utilizadores))
-    localStorage.removeItem('eventoMostrar')
-    localStorage.setItem('eventoMostrar', JSON.stringify(eventos[elIndex]))
+   
 }
 

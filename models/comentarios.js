@@ -1,7 +1,7 @@
 let comentarios = []
 let comentarioID = 0
 class Comentario {
-    constructor(nome, evento, data, texto) {
+    constructor(nome, evento, texto) {
         this._id = Comentario.getLastId() + 1
         this.nome = nome
         this.evento = evento
@@ -42,15 +42,6 @@ class Comentario {
     }
 
 
-    //PROPRIEDADE data
-    get data() {
-        return this._data
-    }
-
-    set data(value) {
-        this._data = value
-    }
-
     //Propriedade texto
 
     get texto() {
@@ -71,7 +62,7 @@ function rendercomentarios() {
 
         //Maneira de encher o array sem ter que mexer nas variáceis internas
         for (let i = 0; i < a.length; i++) {
-            let b = new Comentario(a[i]._nome, a[i]._evento, a[i]._data, a[i]._texto)
+            let b = new Comentario(a[i]._nome, a[i]._evento, a[i]._texto)
             comentarios.push(b)
         }
 

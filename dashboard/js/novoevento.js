@@ -9,6 +9,7 @@ window.onload = function () {
     renderCats()
     //Referencias HTML
     let nome = document.getElementById("inputNome")
+    let descricao=document.getElementById("inputDescricao")
     let data = document.getElementById("inputData")
     let hora = document.getElementById("inputTime")
     let sala = document.getElementById("inputSala")
@@ -54,7 +55,7 @@ window.onload = function () {
        //Verificar se string de erro está vazia
         if (strerr == "") {
             //Criar Objeto e enviar para o array
-            let newEvento = new Evento(nome.value, data.value, hora.value, sala.value, stringcat, responsavel.value, imagem.value)
+            let newEvento = new Evento(nome.value, data.value, hora.value, sala.value, stringcat, responsavel.value, imagem.value,descricao.value)
             eventos.push(newEvento)
             //enviar o array para localstorage
             localStorage.setItem("eventos", JSON.stringify(eventos))

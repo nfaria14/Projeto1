@@ -9,6 +9,7 @@ window.onload = function () {
 
     //Ir buscar o array de eventos e de categorias atualizado
     rendereventos()
+    rendercomentarios()
     rendercategorias()
     renderCats()
 
@@ -246,6 +247,15 @@ function removeeventoById(id) {
     console.log("ID: " + id)
     for (let i = 0; i < eventos.length; i++) {
         if (eventos[i]._id == id) {
+            for(let j=0;j<comentarios.length;j++){
+                  console.log(comentarios[j]._evento)
+                  console.log(id)  
+                if(comentarios[j]._evento==id){
+                    comentarios.splice(j,1)
+                    localStorage.setItem("comentarios", JSON.stringify(comentarios))
+                }
+                
+            }
             eventos.splice(i, 1)
             renderizararray()
             localStorage.setItem("eventos", JSON.stringify(eventos))

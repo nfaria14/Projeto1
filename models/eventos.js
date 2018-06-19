@@ -1,7 +1,7 @@
 let eventos= []
 let eventoID = 0
 class Evento {
-    constructor(nome,data,hora,sala,categoria,responsavel,imagem,pontuacao,descricao){
+    constructor(nome,data,hora,sala,categoria,responsavel,imagem,descricao,pontuacao){
         this._id=Evento.getLastId()+1
         Evento._contador = 0;
         Evento._pontuar = 0;
