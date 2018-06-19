@@ -59,10 +59,7 @@ function login() {
 
 
                 } else {
-<<<<<<< HEAD
-=======
                     console.log("HERE I")
->>>>>>> 7ffb509b575ce9cecf4c6c75cd79879bad9ca5e6
 
                     localStorage.setItem("userID", userID)
 
@@ -111,13 +108,8 @@ function login() {
         optHi.style.display = 'none'
         optEventos.style.display = 'none'
         optParcerias.style.display = 'none'
-<<<<<<< HEAD
-        localStorage.setItem("userID",0)
-        window.location.replace('../index.html')
-=======
         localStorage.setItem("userID", 0)
         window.location.replace("index.html")
->>>>>>> 7ffb509b575ce9cecf4c6c75cd79879bad9ca5e6
     })
 
     // SUBMISSÃO DE REGISTO
