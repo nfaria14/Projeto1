@@ -43,12 +43,11 @@ Ao pontuar o evento verificar se aquele user ja pontou aquele evento
 //ULTIMO UPDATE -- MÁRIO (19/06)
 Já está a funcionar os comentários. Só o aluno comenta! 
 O docente também já pode eliminar comentários!!
-Sempre que der logout pus para ir ao index (acho o melhor). 
-O login acho que devemos fazer o mesmo ou pelo menos recarregar a página quando fizer o login
-Esqueci me do criar parcerias no docente. Amanhã faço isso
-NOTA!!!!!!
-(a opção ver perfil {por baixo do olá,nome} também está visivel para os alunos) Não é suposto pois nao??
-
 é preciso ver os cards do verEventos... nao faço ideia como é que se poem aquilo direito
 
 depois diz alguma coisa!!!
+
+
+//Pontuações 
+
+Já está quase

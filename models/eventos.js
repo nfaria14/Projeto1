@@ -1,15 +1,20 @@
 let eventos= []
 let eventoID = 0
 class Evento {
-    constructor(nome,data,hora,sala,categoria,responsavel,imagem){
+    constructor(nome,data,hora,sala,categoria,responsavel,imagem,pontuacao,descricao){
         this._id=Evento.getLastId()+1
+        Evento._contador = 0;
+        Evento._pontuar = 0;
         this.nome=nome
+        this.descricao=descricao
         this.data=data
         this.hora=hora
         this.sala=sala
         this.categoria=categoria
         this.responsavel=responsavel
         this.imagem=imagem
+        this.pontuacao=pontuacao
+        
     }
     //Propriedade ID
 
@@ -34,6 +39,15 @@ class Evento {
 
     set nome(value){
         this._nome=value
+    }
+
+    //Propriedade descrição
+    get descricao(){
+        return this._descricao
+    }
+
+    set descricao(value){
+        this._descricao=value
     }
 
     //Propriedade data
@@ -87,7 +101,51 @@ class Evento {
         this._imagem=value
     }
 
-}   
+    //Propriedade Pontuacao
+    get pontuacao() {
+        return this._pontuacao
+    }
+
+    set pontuacao(valor) {
+        if (valor != 0 && valor != null) {
+            console.log(valor)
+            let merdas = Evento.fazerPontuacao(valor)
+            // console.log("merdas - " + merdas)
+            this._pontuacao = merdas
+        }
+    }
+     //só para poder ir sabendo onde vai o contador 
+     get contador() {
+        return this._contador
+    }
+    static fazerPontuacao(pontos) {
+
+        let media = 0, soma = 0,  denominador = 0;
+        Evento._contador++
+
+        // Evento._pontuar = this._pontuacao
+
+        if (Evento._contador == 0) denominador = Evento._contador
+        else denominador = Evento._contador - 1
+
+        console.log(Evento._contador)
+        soma = Evento._pontuar * denominador
+
+
+
+        soma += pontos
+        console.log("Soma - " + soma)
+        media = soma / Evento._contador
+        Evento._pontuar = media
+        console.log("Pontuacao - " + Evento._pontuar)
+
+
+
+        return media
+    }
+}
+
+
 
 //Function preencher array
 
@@ -98,7 +156,7 @@ function rendereventos(){
 
         //Maneira de encher o array sem ter que mexer nas variáceis internas
         for (let i = 0; i < a.length; i++) {
-            let b = new Evento(a[i]._nome,a[i]._data,a[i]._hora,a[i]._sala,a[i]._categoria,a[i]._responsavel,a[i]._imagem)
+            let b = new Evento(a[i]._nome,a[i]._data,a[i]._hora,a[i]._sala,a[i]._categoria,a[i]._responsavel,a[i]._imagem,a[i]._pontuacao,a[i]._descricao)
             eventos.push(b)
         }
 

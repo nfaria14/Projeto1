@@ -1,8 +1,10 @@
 let nome2 = ""
 let evento = ""
-let data2 = ""
+//Vai simplificar saber qual é o indice no array utilizadores do utilizador loggado
+let indexUtilizador = localStorage.getItem("userID")-1;
 
-
+//Vai servir para saber se há alguém com sessão iniciada ou não
+let logged = false;
 window.onload = function () {
     rendereventos()
     rendercategorias()
@@ -12,7 +14,9 @@ window.onload = function () {
     rendercomentarios()
     renderComment()
     renderTestimonial()
-
+    if(localStorage.getItem("userID")!=0){
+        logged=true
+    }
     //EVENTOID
     let eventoid = localStorage.getItem("eventoID")
     //Referencias HTML
@@ -109,7 +113,7 @@ function renderComment() {
     }
 
 
-    console.log("C: ", nome2, evento, data2)
+    console.log("C: ", nome2, evento)
 }
 
 function renderTestimonial() {
@@ -186,9 +190,19 @@ function removeComentarioById(id) {
 }
 
 //PONTUAR
+let valorDeMercado = 0; //Valor que vai seer adicionado à pontuação
+
 function botaoPontuar(e) { //Isto vai abrir um botão para deixar pontuar, cada utilizador só vai pontuar o evento 1 vez, secalhar adicionar um bolleano para dizer se já pontoou ou não
 
-    let eventito = JSON.parse(localStorage.getItem('eventoMostrar'))
+    let eventoID=localStorage.getItem("eventoID")
+
+    let eventito = ""
+
+    for(let i=0;i<eventos.length;i++){
+        if(eventos[i]._id==eventoID){
+            eventito=evento[i]
+        }
+    }
     let jaPontoou = false
 
     if (utilizadores[indexUtilizador].pontoou.length > 0) {

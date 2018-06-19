@@ -1,12 +1,13 @@
 let utilizadores= []
 let utilizadorID = 0
 class Utilizador {
-    constructor(nome,tipo,email,password){
+    constructor(nome,tipo,email,password,pontoou){
         this._id=Utilizador.getLastId()+1
         this.nome=nome
         this.tipo=tipo
         this.email=email
         this.password=password
+        this.pontoou=pontoou
     }
     //Propriedade ID
 
@@ -59,6 +60,18 @@ class Utilizador {
     set password(value){
         this._password=value
     }
+
+    //Verificar se já pontoou ou n
+    get pontoou() {
+        return this._pontoou
+    }
+    set pontoou(valor) {
+        valor = parseInt(valor)
+        // console.log(typeof valor)
+        if (valor != 0 && valor != NaN){
+            this._pontoou=valor
+        }
+    }
 }   
 
 //Function preencher array
@@ -70,7 +83,7 @@ function renderUtilizadores(){
 
         //Maneira de encher o array sem ter que mexer nas variáceis internas
         for (let i = 0; i < a.length; i++) {
-            let b = new Utilizador(a[i]._nome,a[i]._tipo,a[i]._email,a[i]._password)
+            let b = new Utilizador(a[i]._nome,a[i]._tipo,a[i]._email,a[i]._password,a[i]._pontoou)
             utilizadores.push(b)
         }
 
