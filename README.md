@@ -40,9 +40,6 @@ TESTES
 
 Ao pontuar o evento verificar se aquele user ja pontou aquele evento
 
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-----------------------------------------------------------------------------------------------------------------------------
-
 //ULTIMO UPDATE -- MÁRIO (19/06)
 Já está a funcionar os comentários. Só o aluno comenta! 
 O docente também já pode eliminar comentários!!
