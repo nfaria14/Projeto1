@@ -63,6 +63,16 @@ window.onload = function () {
         //  $('#comentarioModal').modal('hide')
         console.log("Estou aqui!!!!!!!!")
     })
+
+    //PONTUAR
+    let estrelitas = document.getElementsByClassName('btn btn-default btn-grey btn-sm')
+    //console.log(estrelasPontuar)
+    for (let i = 0; i < estrelitas.length; i++) {
+        //this.console.log(estrelasPontuar[i])
+        estrelitas[i].addEventListener('click', botaoPontuar)
+    }
+
+    
 }
 
 
@@ -94,8 +104,7 @@ function renderComment() {
     for (let i = 0; i < eventos.length; i++) {
         console.log("a3")
         if (eventos[i]._id == eventoID) {
-            evento = eventos[i]._nome
-            data2 = eventos[i]._data
+            evento = eventos[i]._id
         }
     }
 
@@ -114,12 +123,12 @@ function renderTestimonial() {
     for (var i = 0; i < comentarios.length; i++) {
 
         //Verificação dos comentários para o respetivo evento
-        if (comentarios[i]._evento == evento && comentarios[i]._data == data2) {
+        if (comentarios[i]._evento == evento) {
 
 
             // Cria a card
             strHtmlCard2 += ` <div class="container">
-            <div class="col-lg-12 col-sm-12 text-center">
+            <div class="col-lg-12 col-md-6 col-sm-12 text-center">
             <div class="well">
                        <ul data-brackets-id="12674" id = "sortable" class="list-unstyled ui-sortable" >
                        <strong class="pull-left primary-font">${comentarios[i]._nome}</strong>
@@ -175,3 +184,75 @@ function removeComentarioById(id) {
         }
     }
 }
+
+//PONTUAR
+function botaoPontuar(e) { //Isto vai abrir um botão para deixar pontuar, cada utilizador só vai pontuar o evento 1 vez, secalhar adicionar um bolleano para dizer se já pontoou ou não
+
+    let eventito = JSON.parse(localStorage.getItem('eventoMostrar'))
+    let jaPontoou = false
+
+    if (utilizadores[indexUtilizador].pontoou.length > 0) {
+        for (let i = 0; i < utilizadores[indexUtilizador].pontoou.length; i++) {
+            console.log(eventito._id)
+            if (utilizadores[indexUtilizador].pontoou[i] == eventito._id) {
+                jaPontoou = true
+            }
+        }
+    }
+
+    if (logged && jaPontoou == false) {
+        let botaozao = document.getElementById('botaoPontuar')
+        let estrelasPontuar = document.getElementsByClassName('btn btn-default btn-grey btn-sm')
+
+        botaozao.style.display = 'inline-block'
+
+
+        if (e.target.id == "") valorDeMercado = parseInt(e.target.parentNode.id)
+        else valorDeMercado = parseInt(e.target.id)
+        let botone = document.getElementById('botaoPontuar')
+        botone.addEventListener('click', realmentePontuar)
+
+        console.log(valorDeMercado)
+
+        for (let i = 0; i < estrelasPontuar.length; i++) {
+            if (estrelasPontuar[i].id <= valorDeMercado) {
+                estrelasPontuar[i].style.background = "rgb(255,193,7)"
+            }
+            else {
+                estrelasPontuar[i].style.background = "grey"
+            }//class="fa fa-star"
+        }
+    }
+    else {
+        if (jaPontoou == true) alert('Já pontuaste este evento')
+        else alert("Tens que estar logado para pontuar")
+    }
+
+}
+
+function realmentePontuar() { //Em principio as matemáticas vão ser feitas na classe
+    let a = ""
+    if (localStorage.getItem('EventoMostrar')) {
+        a = JSON.parse(localStorage.getItem('EventoMostrar'))
+    }
+
+    let elIndex = 0;
+    for (let i = 0; i < eventos.length; i++) {
+        if (eventos[i].id == a._id) {
+            elIndex = i
+        }
+    }
+
+    console.log(eventos[elIndex].nome) //Dá o que quero
+    console.log(valorDeMercado)
+    eventos[elIndex].pontuacao = valorDeMercado
+    document.getElementById('pontuacaoMedia').innerHTML = `${eventos[elIndex].pontuacao} <small style="font-size:20px">/5</small>`
+    localStorage.removeItem('eventos')
+    localStorage.setItem('eventos', JSON.stringify(eventos))
+    //Fazer com que o utilizador não possa voltar a pontuar
+    utilizadores[indexUtilizador].pontoou = a._id
+    localStorage.setItem('utilizadores', JSON.stringify(utilizadores))
+    localStorage.removeItem('eventoMostrar')
+    localStorage.setItem('eventoMostrar', JSON.stringify(eventos[elIndex]))
+}
+

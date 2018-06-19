@@ -5,7 +5,6 @@ class Comentario {
         this._id = Comentario.getLastId() + 1
         this.nome = nome
         this.evento = evento
-        this.data = data
         this.texto = texto
     }
 
