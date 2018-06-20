@@ -66,7 +66,7 @@ class Utilizador {
         return this._pontoou
     }
     set pontoou(valor) {
-        valor = parseInt(valor)
+        valor = valor
         console.log(typeof valor)
         console.log(valor)
         if (valor != 0 && valor != NaN){

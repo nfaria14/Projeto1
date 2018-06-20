@@ -55,7 +55,7 @@ window.onload = function () {
        //Verificar se string de erro está vazia
         if (strerr == "") {
             //Criar Objeto e enviar para o array
-            let newEvento = new Evento(nome.value, data.value, hora.value, sala.value, stringcat, responsavel.value, imagem.value,descricao.value)
+            let newEvento = new Evento(nome.value, data.value, hora.value, sala.value, stringcat, responsavel.value, imagem.value,descricao.value,0)
             eventos.push(newEvento)
             //enviar o array para localstorage
             localStorage.setItem("eventos", JSON.stringify(eventos))

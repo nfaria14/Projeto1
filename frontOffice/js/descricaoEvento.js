@@ -23,8 +23,17 @@ window.onload = function () {
     let eventoid = localStorage.getItem("eventoID")
     let jaPontoou=false
     for(let i=0;i<eventos.length;i++){
+        console.log(eventoid)
             if(eventos[i]._id==eventoid){
-                document.getElementById('pontuacaoMedia').innerHTML = `${eventos[i]._pontuacao} <small style="font-size:20px">/5</small>`
+                console.log(eventos[i]._id)
+                console.log(eventos[i].pontuacao)
+                if(eventos[i]._pontuacao!=null){
+                    console.log(eventos[i]._pontuacao)
+                    document.getElementById('pontuacaoMedia').innerHTML = `${eventos[i]._pontuacao} <small style="font-size:20px">/5</small>`
+                }else{
+                    document.getElementById('pontuacaoMedia').innerHTML = `0<small style="font-size:20px">/5</small>`
+
+                }
             }
     }
     //Referencias HTML
@@ -81,7 +90,29 @@ window.onload = function () {
     //console.log(estrelasPontuar)
     for (let i = 0; i < estrelitas.length; i++) {
         //this.console.log(estrelasPontuar[i])
-        estrelitas[i].addEventListener('click', botaoPontuar)
+        console.log("O utilizador quevai pontuar é:" +utilizadores[indexUtilizador]._nome )
+        console.log("A string pontuou "+utilizadores[indexUtilizador]._pontoou.length)
+        if (utilizadores[indexUtilizador]._pontoou.length > 0) {            
+            for (let i = 0; i < utilizadores[indexUtilizador]._pontoou.length; i++) {
+                console.log("ID DO EVENTO"+eventoid)
+                if (utilizadores[indexUtilizador]._pontoou[i] == eventoid) {
+                    
+                    jaPontoou = true
+                    console.log("O pontuar está:"+jaPontoou)
+                }
+            }
+        }
+        if(jaPontoou){
+            console.log("Não pontuas porca")
+      
+            estrelitas[i].addEventListener('click', function(){
+                alert("Já pontuou este evento")
+            })
+
+        }else{
+            estrelitas[i].addEventListener('click', botaoPontuar)
+            console.log("Podes pontuar")
+        }
     }
 
     
@@ -208,7 +239,7 @@ function botaoPontuar(e) { //Isto vai abrir um botão para deixar pontuar, cada 
 
     for(let i=0;i<eventos.length;i++){
         if(eventos[i]._id==eventoID){
-            eventito=new Evento(eventos[i]._nome,eventos[i]._data,eventos[i]._hora,eventos[i]._sala,eventos[i]._categoria,eventos[i]._responsavel,eventos[i]._imagem,eventos[i]._descricao, eventos[i]._descricao)
+            eventito=new Evento(eventos[i]._nome,eventos[i]._data,eventos[i]._hora,eventos[i]._sala,eventos[i]._categoria,eventos[i]._responsavel,eventos[i]._imagem,eventos[i]._descricao, eventos[i]._pontuacao)
             console.log(eventoID)
             eventito._id=eventoID
             console.log("o evento defenido é:"+eventito.id)

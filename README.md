@@ -49,5 +49,4 @@ depois diz alguma coisa!!!
 
 
 //Pontuações 
-
-Já está quase
+FEITO 

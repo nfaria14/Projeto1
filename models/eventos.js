@@ -6,13 +6,13 @@ class Evento {
         Evento._contador = 0;
         Evento._pontuar = 0;
         this.nome=nome
-        this.descricao=descricao
         this.data=data
         this.hora=hora
         this.sala=sala
         this.categoria=categoria
         this.responsavel=responsavel
         this.imagem=imagem
+        this.descricao=descricao
         this.pontuacao=pontuacao
         
     }
@@ -156,7 +156,7 @@ function rendereventos(){
 
         //Maneira de encher o array sem ter que mexer nas variáceis internas
         for (let i = 0; i < a.length; i++) {
-            let b = new Evento(a[i]._nome,a[i]._data,a[i]._hora,a[i]._sala,a[i]._categoria,a[i]._responsavel,a[i]._imagem,a[i]._pontuacao,a[i]._descricao)
+            let b = new Evento(a[i]._nome,a[i]._data,a[i]._hora,a[i]._sala,a[i]._categoria,a[i]._responsavel,a[i]._imagem,a[i]._descricao,a[i]._pontuacao)
             eventos.push(b)
         }
 
