@@ -76,18 +76,8 @@ function login() {
                     
                 }
             }
-            //MOSTRAR AS OPÇÕES DA NAVBAR DO DOCENTE 
+            window.location.reload()
 
-            for (let i = 0; i < utilizadores.length; i++) {
-                if (userID == utilizadores[i]._id) {
-                    if (utilizadores[i]._tipo == 1) {
-
-                        optEventos.style.display = 'block'
-                        optParcerias.style.display = 'block'
-                        window.location.reload()
-                    }
-                }
-            }
             //---------------------------------------------------------
         } else {
             // Se não, exibir mensagem a indicar a inexistência do utilizador no array

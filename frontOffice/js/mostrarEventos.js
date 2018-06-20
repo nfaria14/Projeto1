@@ -196,7 +196,7 @@ function renderTableDocente() {
 
         // Cria a card
         strHtmlCard += `<div class="col-sm-1"></div><div class="col-sm-3">
-                <div class="card" >
+                <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${temparray[i]._nome}</h5>
