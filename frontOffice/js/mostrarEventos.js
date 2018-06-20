@@ -133,6 +133,27 @@ window.onload = function () {
                 }
                 break;
             case "pontuacoes":
+            tblEventos.innerHTML = ""
+            console.log("O filtro é -" + selFiltros.value)
+            console.log("A categoria -" + cat)
+            console.log(temparray)
+            renderizararray(cat)
+            filtrarPorPontuacoes(temparray)
+            console.log(temparray)
+            if(userID!=0){
+                for(let i=0;i<utilizadores.length;i++){
+                    if(utilizadores[i]._id==userID){
+                        if(utilizadores[i]._tipo==1){
+                            renderTableDocente()
+                        }else{
+            
+                            renderTable()
+                        }
+                    }
+                }
+            }else{
+                renderTable()
+            }
                 break;
         }
 
@@ -378,8 +399,26 @@ function ordenararrayRecentes(array) {//FUNCIONA FINALMENTE
 }
 
 
-//Later
-function filtrarPontuações(array) {
-
+function filtrarPorPontuacoes(array) {
+    
+    let objtemp
+    for(let i=0;i<array.length;i++){
+        if(array[i]._pontuacao==undefined){
+            array[i]._pontuacao=0
+        }
+    }
+    for(let i=0;i<array.length;i++){
+        if(i>0){
+            console.log(array[i]._pontuacao)
+            
+            if(array[i-1]._pontuacao<array[i]._pontuacao ){
+                objtemp=array[i-1]
+                console.log(objtemp)
+                array[i-1]=array[i]
+                array[i]=objtemp
+                i=0
+            }
+        }
+    }
 
 }

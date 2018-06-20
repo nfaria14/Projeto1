@@ -62,7 +62,16 @@ window.onload = function () {
                 renderTable()
                 break;
             case "pontuacoes":
+                tblEventos.innerHTML = ""
+                console.log("O filtro é -" + selFiltros.value)
+                console.log("A categoria -" + cat)
+                console.log(temparray)
+                renderizararray(cat)
+                filtrarPorPontuacoes(temparray)
+                console.log(temparray)
+                renderTable()
                 break;
+                
         }
 
     })
@@ -119,7 +128,7 @@ function renderTable() {
     let strHtmlCard = ""
     for (let i = 0; i < temparray.length; i++) {
         // Inicia a linha
-        if (i % 3== 0) {
+        if (i % 3 == 0) {
             strHtmlCard += `<div class="row">`
         }
 
@@ -139,7 +148,7 @@ function renderTable() {
             </div>`
 
         // Fecha a linha
-        if (i % 3== 2) {
+        if (i % 3 == 2) {
             strHtmlCard += `</div>`
         }
 
@@ -219,32 +228,51 @@ function filtrarPorRealizar(array) {//Funciona VERY NICEEEEEE
 
 function ordenararrayRecentes(array) {//FUNCIONA FINALMENTE 
 
-    let temp = "" 
+    let temp = ""
     let objtemp
-    for (let i=0;i<array.length;i++) {
-        if(i>0){ 
-            
+    for (let i = 0; i < array.length; i++) {
+        if (i > 0) {
+
             console.log(array[i]._data)
-            if (new Date(array[i-1]._data) < new Date(array[i]._data)) {
-                objtemp=array[i-1]
-                temp = array[i-1]._data
-                array[i-1]=array[i]
-                array[i-1]._data = array[i]._data
-                array[i]=objtemp
+            if (new Date(array[i - 1]._data) < new Date(array[i]._data)) {
+                objtemp = array[i - 1]
+                temp = array[i - 1]._data
+                array[i - 1] = array[i]
+                array[i - 1]._data = array[i]._data
+                array[i] = objtemp
                 array[i]._data = temp
                 console.log(array[i]._data)
-                i=0
+                i = 0
             }
-    
+
 
         }
-       
+
     }
 }
 
 
 //Later
-function filtrarPontuações(array) {
-
+function filtrarPorPontuacoes(array) {
+    
+    let objtemp
+    for(let i=0;i<array.length;i++){
+        if(array[i]._pontuacao==undefined){
+            array[i]._pontuacao=0
+        }
+    }
+    for(let i=0;i<array.length;i++){
+        if(i>0){
+            console.log(array[i]._pontuacao)
+            
+            if(array[i-1]._pontuacao<array[i]._pontuacao ){
+                objtemp=array[i-1]
+                console.log(objtemp)
+                array[i-1]=array[i]
+                array[i]=objtemp
+                i=0
+            }
+        }
+    }
 
 }

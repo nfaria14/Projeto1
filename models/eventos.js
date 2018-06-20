@@ -109,9 +109,9 @@ class Evento {
     set pontuacao(valor) {
         if (valor != 0 && valor != null) {
             console.log(valor)
-            let merdas = Evento.fazerPontuacao(valor)
-            // console.log("merdas - " + merdas)
-            this._pontuacao = merdas
+            let pontos = Evento.fazerPontuacao(valor)
+      
+            this._pontuacao = pontos
         }
     }
      //só para poder ir sabendo onde vai o contador 

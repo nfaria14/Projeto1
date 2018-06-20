@@ -14,13 +14,6 @@ PARCERIAS BACKOFFICE FEITO
 CATÁLOGO DE EVENTOS--SÓ FALTA FILTRAR POR PONTUAÇÕES
 
 
-
-PARCEIROS:
-
-
-JÁ TENHO A PARTE DOS PARCEIROS FEITA
-
-
 TESTEMUNHOS:
 
 Já está
@@ -29,20 +22,11 @@ Já está
 
 FALTA:
 
-EVENTOS: COMENTÁRIOS E PONTUAÇÕES
-
 MELHORAR DESIGN
 
 TESTES
 
-
-//Pontuações
-
-Ao pontuar o evento verificar se aquele user ja pontou aquele evento
-
 //ULTIMO UPDATE -- MÁRIO (19/06)
-Já está a funcionar os comentários. Só o aluno comenta! 
-O docente também já pode eliminar comentários!!
 é preciso ver os cards do verEventos... nao faço ideia como é que se poem aquilo direito
 
 depois diz alguma coisa!!!

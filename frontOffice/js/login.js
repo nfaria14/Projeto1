@@ -40,7 +40,7 @@ function login() {
 
         let userID
         for (let i = 0; i < utilizadores.length; i++) {
-            if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value) {
+            if (utilizadores[i]._email == inputLoginEmail.value && utilizadores[i]._password == inputLoginPassword.value) {
                 userExists = true
                 userName = utilizadores[i]._nome
                 userID = utilizadores[i]._id
@@ -50,10 +50,11 @@ function login() {
         // Se sim, autenticar utilizador
         if (userExists) {
             alert("Autenticação efetuado com sucesso!!")
-
             // ADICIONADO DIA 2 Verificar se é admin
             for (let i = 0; i < utilizadores.length; i++) {
-                if (utilizadores[i].email == inputLoginEmail.value && utilizadores[i].password == inputLoginPassword.value && utilizadores[i].tipo == 2) {
+                console.log("Email"+utilizadores[i]._email)
+
+                if (utilizadores[i]._email == inputLoginEmail.value && utilizadores[i]._password == inputLoginPassword.value && utilizadores[i]._tipo == 2) {
                     console.log("Entra?")
                     window.location.replace('../../dashboard/index.html')
 
@@ -73,10 +74,13 @@ function login() {
                     optHi.innerHTML = "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Olá, " +
                         userName + "</a>" + `<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="myprofile.html">Perfil</a></div>`
                     optHi.style.display = 'block'
-                    
+                    if(utilizadores[i]._email==inputLoginEmail.value && utilizadores[i]._tipo!=2){
+                        window.location.reload()
+
+                    }
                 }
             }
-            window.location.reload()
+            
 
             //---------------------------------------------------------
         } else {
