@@ -98,16 +98,22 @@ window.onload = function () {
                 console.log("A categoria -" + cat)
                 renderizararray(cat)
                 filtrarRealizados(temparray)
-                for(let i=0;i<utilizadores.length;i++){
-                    if(utilizadores[i]._id==userID){
-                        if(utilizadores[i]._tipo==1){
-                            renderTableDocente()
-                        }else{
-            
-                            renderTable()
+                if(userID!=0){
+                    for(let i=0;i<utilizadores.length;i++){
+                        if(utilizadores[i]._id==userID){
+                            if(utilizadores[i]._tipo==1){
+                                renderTableDocente()
+                            }else{
+                
+                                renderTable()
+                            }
                         }
                     }
+                }else{
+                    renderTable()
                 }
+                
+                
                 break;
             case "arealizar"://WORKING
                 tblEventos.innerHTML = ""
@@ -216,8 +222,8 @@ function renderTableDocente() {
         }
 
         // Cria a card
-        strHtmlCard += `<div class="col-sm-1"></div><div class="col-sm-3">
-                <div class="card" style="width: 18rem;">
+        strHtmlCard += `<div class="col-sm-4">
+                <div class="card h-100" style="width: 18rem;">
                     <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${temparray[i]._nome}</h5>
@@ -295,8 +301,8 @@ function renderTable() {
             
         // Cria a card
         strHtmlCard += `<div class="col-sm-4">
-                <div class="card" >
-                    <img style='height: 400px; width: 300px; object-fit: cover' class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
+                <div class="card h-100" >
+                    <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${temparray[i]._nome}</h5>
                         <p class="card-text">${temparray[i]._categoria}
