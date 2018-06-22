@@ -21,8 +21,7 @@
     
 
 </head>
-
-<body>
+<body id="mybody">
     <!--BARRA DE NAVEGAÇÃO-->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <!-- SIDEBAR-->
@@ -42,19 +41,23 @@
                 <a href="mostrarDocentes.html">Docentes</a>
                 <a href="testemunhos.html">Testemunhos</a>
         </div>
-        <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776; menu</span>
+        <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776;</span>
 
 
 
         <script>
             function openNav() {
                 document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("mybody").style.paddingLeft="250px";
             }
 
             function closeNav() {
                 document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("mybody").style.paddingLeft="0";
+
             }
         </script>
+
 
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto">
