@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>eNote</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- SideBar CSS -->
+    <link rel="stylesheet" href="../css/sidebar.css">
+
+    <!--Custom JS-->
+    <script src="../../models/utilizadores.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../../models/parcerias.js"></script>
+    <script src="../js/criarParceria.js"></script>
+
+</head>
+
+<body id="mybody">
+    <!--BARRA DE NAVEGAÇÃO-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <!-- SIDEBAR-->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li id="optEventos">
+                    <a href="mostrarEventos.html">Eventos</a>
+                </li>
+                <li id="optCriarEventos">
+                    <a href="criarEvento.html">Criar eventos</a>
+                </li>
+                <a href="mostarParcerias.html">Parcerias</a>
+                
+                <li id="optGerirParcerias">
+                    <a href="criarParceria.html">Criar Parceria</a>
+                </li>
+                <a href="mostrarDocentes.html">Docentes</a>
+                <a href="testemunhos.html">Testemunhos</a>
+        </div>
+        <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776;</span>
+
+
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("mybody").style.paddingLeft="250px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("mybody").style.paddingLeft="0";
+
+            }
+        </script>
+
+
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <ul class="navbar-nav">
+                <!--OPÇÃO LOGIN-->
+                <li id="optLogin" class="nav-item">
+                    <a data-toggle="modal" data-target="#loginModal" class="nav-link" href="#">Login</a>
+                </li>
+                <!--OPÇÃO REGISTO-->
+                <li id="optRegister" class="nav-item">
+                    <a data-toggle="modal" data-target="#registoModal" class="nav-link" href="#">Registo</a>
+                </li>
+                <!--OPÇÃO LOGOUT-->
+                <li id="optLogout" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+                <!--OPÇÃO HI-->
+                <li id="optHi" class="nav-item dropdown"></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--MODAL PARA REGISTO-->
+    <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmRegister">
+                        <!--NOME-->
+                        <div class="form-group">
+                            <label for="inputName">Nome</label>
+                            <input required type="text" class="form-control" id="inputName" placeholder="nome">
+                        </div>
+                        <!--EMAIL-->
+                        <div class="form-group">
+                            <label for="inputEmail">E-mail</label>
+                            <input required type="email" class="form-control" id="inputEmail" placeholder="email">
+                        </div>
+
+                        <!--PASSWORD-->
+                        <div class="form-group">
+                            <label for="inputPassword1">Password</label>
+                            <input required minlength="5" type="password" class="form-control" id="inputPassword1" placeholder="password">
+                        </div>
+
+                        <!-- CONFIRMAR PASSWORD-->
+                        <div class="form-group">
+                            <label for="inputPassword2">Confirmar password</label>
+                            <input required minlength="5" type="password" class="form-control" id="inputPassword2" placeholder="password">
+                        </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input type="submit" class="btn btn-primary" value="Registar" />
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL PARA AUTENTICAÇÃO-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="frmLogin">
+                        <!--EMAIL-->
+                        <div class="form-group">
+                            <label for="inputLoginEmail">E-mail</label>
+                            <input required type="email" class="form-control" id="inputLoginEmail" placeholder="email">
+                        </div>
+
+                        <!--PASSWORD-->
+                        <div class="form-group">
+                            <label for="inputLoginPassword">Password</label>
+                            <input type="password" class="form-control" id="inputLoginPassword" placeholder="password">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input type="submit" onclick="myFunction()" class="btn btn-primary" value="Login" />
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Criar Parceria</h1>
+
+             <!--FORMULÁRIO-->
+          <form id="frmParceiros">
+            <div class="form-row">
+              <!--Campo nome-->
+              <div class="form-group col-md-12">
+                <label for="inputNome">Nome</label>
+                <input type="text" value="Evento" class="form-control" id="inputNome" maxlength="30" required>
+              </div>
+            </div>
+
+            <!--Localização-->
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="inputLocalizacao">Localização</label>
+                <input type="text" value="Rua" class="form-control" id="inputLocalizacao" required>
+              </div>
+            </div>
+            <!--URL-->
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputLink">Link Site</label>
+                    <input type="url" value="url" class="form-control" id="inputLink" required>
+                </div> 
+            </div>
+            <!--Botões-->
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-primary mb-2">Gravar Parceria</button>
+                    <button type="reset" class="btn btn-primary mb-2">Limpar</button>
+                </div>
+            </div>
+          </form>
+        </div>
+    </div>
+
+
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>
