@@ -165,31 +165,32 @@
 
     <!--CATALOG (jumbotron)-->
     <div class="jumbotron">
-        <h1 class="display-4">Catálogo de Eventos</h1>
-        <p class="lead">Pesquise todos os eventos!</p>
+        <h1 class="display-4" style="margin-left: 40px">Catálogo de Eventos</h1>
+        <p class="lead" style="margin-left: 40px">Pesquise todos os eventos!</p>
 
 
-        <form class="form-inline">
+        <form class="form-inline" style="margin-left: 40px">
             <div class="form-group mb-12">
 
-                <label for="selCategorias">Categorias</label>
-                <select id="selCategorias"></select>
-                <label for="selFiltros">Filtros:</label>
-                <select id="selFiltros">
+                <label for="selCategorias">Categorias: </label>
+                <select id="selCategorias" class="form-control"></select>
+                <label for="selFiltros">Filtros: </label>
+                <select id="selFiltros" class="form-control">
                     <option value="">Todos</option>
                     <option value="recentes">Mais recentes</option>
                     <option value="pontuacoes">Melhor Pontuados</option>
                     <option value="realizados">Realizados</option>
                     <option value="arealizar">Por Realizar</option>
                 </select>
-                <button id="btnSearch" type="button" class="btn btn-primary mb-2 mr-1">Filtrar</button>
+                <button id="btnSearch" type="button" class="btn btn-primary" style="margin-left: 2px">Filtrar</button>
             </div>
 
 
         </form>
+        <br>
         <div class="row">
             
-            <div id="catalog" class="card-group" >
+            <div id="catalog" class="container" style="margin-left: 40px" >
 
             </div>
         </div>

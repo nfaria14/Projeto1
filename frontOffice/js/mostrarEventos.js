@@ -223,14 +223,14 @@ function renderTableDocente() {
 
         // Cria a card
         strHtmlCard += `<div class="col-sm-4">
-                <div class="card h-100" style="width: 18rem;">
-                    <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
+                <div class="card h-100">
+                    <img class="card-img-top" src="${temparray[i]._imagem}" height="200" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${temparray[i]._nome}</h5>
                         <p class="card-text">${temparray[i]._categoria}</p>`
 
-        strHtmlCard += `<a id="${temparray[i]._id}" href="descricaoEvento.html" class="btn btn-warning edit" >Editar</a>`
-        strHtmlCard += `<a id="${temparray[i]._id}" href="#" class="btn btn-danger remove">REMOVE</a>`
+        strHtmlCard += `<a id="${temparray[i]._id}" href="descricaoEvento.html" class="btn btn-warning btn-lg btn-block edit" >Editar</a>`
+        strHtmlCard += `<a id="${temparray[i]._id}" href="#" class="btn btn-danger btn-lg btn-block remove">REMOVE</a>`
 
         strHtmlCard += `</div>
                 </div>      
@@ -238,7 +238,7 @@ function renderTableDocente() {
 
         // Fecha a linha
         if (i % 3== 2) {
-            strHtmlCard += `</div>`
+            strHtmlCard += `</div><br>`
         }
 
     }
@@ -302,7 +302,7 @@ function renderTable() {
         // Cria a card
         strHtmlCard += `<div class="col-sm-4">
                 <div class="card h-100" >
-                    <img class="card-img-top" src="${temparray[i]._imagem}" alt="Card image cap">
+                    <img class="card-img-top" src="${temparray[i]._imagem}" height="300" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${temparray[i]._nome}</h5>
                         <p class="card-text">${temparray[i]._categoria}
@@ -313,7 +313,7 @@ function renderTable() {
                         </div>
                         
                         <div align="center">
-                        <a id="${temparray[i]._id}" href="descricaoEvento.html" class="btn btn-warning edit">Ver</a>
+                        <a id="${temparray[i]._id}" href="descricaoEvento.html" class="btn btn-warning btn-lg btn-block edit">Ver</a>
                         </div>
         </div>
 
@@ -323,7 +323,7 @@ function renderTable() {
 
         // Fecha a linha
         if (i % 3 == 2) {
-            strHtmlCard += `</div>`
+            strHtmlCard += `</div><br>`
         }
 
     }
