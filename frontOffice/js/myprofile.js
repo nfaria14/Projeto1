@@ -79,7 +79,7 @@ window.onload = function () {
                         uc.value = docentes[j]._uc
                         cv.value = docentes[j]._cv
                         formacao.value = docentes[j]._formacao
-                        foto.value = docentes[j]._foto
+                        foto.setAttribute("src",docentes[j]._foto )  
                     }
                 }
             }

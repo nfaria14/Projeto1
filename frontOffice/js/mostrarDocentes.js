@@ -21,7 +21,7 @@ function renderCatalogo(){
         // Cria a card
         strHtmlCard += `<div class="col-sm-1"></div><div class="col-sm-4">
                 <div class="card h-100" >
-                    <img class="card-img-top" src="#" height="200" alt="Por preencher">
+                    <img class="card-img-top" src="${docentes[i]._foto}" height="200" alt="Por preencher">
                     <div class="card-body">
                         <h5 class="card-title">${docentes[i]._nome}</h5>
                         <p class="card-text">${docentes[i]._formacao}</p>`
