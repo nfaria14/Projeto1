@@ -30,26 +30,28 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <li id="optEventos">
-                <a href="mostrarEventos.html">                
+                <a href="mostrarEventos.html">
                     <i class="fa fa-calendar-o"></i>
                     Eventos</a>
-                </li>
-                <li id="optCriarEventos">
-                    <a href="criarEvento.html"><i class="fa fa-calendar-plus-o"></i>Criar Evento</a>
-                </li>
-                <a href="mostarParcerias.html">          
-                    <i class="	fa fa-handshake-o"></i>
-                    Parcerias</a>
-                
-                <li id="optGerirParcerias">
-                    <a href="criarParceria.html"><i class="	fa fa-plus-square"></i>Criar Parceria</a>
-                </li>
-                <a href="mostrarDocentes.html">
-                        <i class="fa fa-address-card-o"></i>
-                        Docentes</a>
-                <a href="testemunhos.html">
-                        <i class="fa fa-mortar-board"></i>
-                        Testemunhos</a>
+            </li>
+            <li id="optCriarEventos">
+                <a href="criarEvento.html">
+                    <i class="fa fa-calendar-plus-o"></i>Criar Evento</a>
+            </li>
+            <a href="mostarParcerias.html">
+                <i class="	fa fa-handshake-o"></i>
+                Parcerias</a>
+
+            <li id="optGerirParcerias">
+                <a href="criarParceria.html">
+                    <i class="	fa fa-plus-square"></i>Criar Parceria</a>
+            </li>
+            <a href="mostrarDocentes.html">
+                <i class="fa fa-address-card-o"></i>
+                Docentes</a>
+            <a href="testemunhos.html">
+                <i class="fa fa-mortar-board"></i>
+                Testemunhos</a>
         </div>
         <span style="font-size:30px;color:rgb(128, 128, 128);cursor:pointer" onclick="openNav()">&#9776;</span>
 
@@ -58,14 +60,14 @@
         <script>
             function openNav() {
                 document.getElementById("mySidenav").style.width = "200px";
-                document.getElementById("mybody").style.paddingLeft="200px";
-                document.getElementById("myfooter").style.paddingLeft="200px";
+                document.getElementById("mybody").style.paddingLeft = "200px";
+                document.getElementById("myfooter").style.paddingLeft = "200px";
             }
 
             function closeNav() {
                 document.getElementById("mySidenav").style.width = "0";
-                document.getElementById("mybody").style.paddingLeft="0";
-                document.getElementById("myfooter").style.paddingLeft="0";
+                document.getElementById("mybody").style.paddingLeft = "0";
+                document.getElementById("myfooter").style.paddingLeft = "0";
 
             }
         </script>
@@ -74,11 +76,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto">
                 <a class="navbar-brand" href="index.html">
-                    <img style="margin-left: 10px" src="../img/logo navbar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                    eNote
-                  </a>
+                    <img style="margin-left: 10px" src="../img/logo navbar.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> eNote
+                </a>
             </ul>
-           
+
             <ul class="navbar-nav">
                 <!--OPÇÃO LOGIN-->
                 <li id="optLogin" class="nav-item">
@@ -99,19 +100,32 @@
         </div>
     </nav>
     <div class="row">
-        
-            <div class="col-md-12" style="margin-left: 20px">
-               <!--EVENTOS TOP3-->
-               <h3 style="margin-left: 100px">Top 3 Eventos</h3>
-              <div class="container" id="top3">
-    
-    
-              </div>
-            </div>
-          
-          </div>
 
-    
+        <div class="col-md-12" style="margin-left: 20px">
+            <!--EVENTOS TOP3-->
+            <h3 style="margin-left: 100px">Top 3 Eventos</h3>
+            <div class="container" id="top3">
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <h3 style="margin-left: 20px">Vídeo Sobre O Site:</h3>
+            <!-- 4:3 aspect ratio -->
+            <div class="embed-responsive embed-responsive-4by3" >
+                <video class="embed-responsive-item" controls>
+                    <source src="../img/Composição final.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+    </div>
+
+
     <!--MODAL PARA REGISTO-->
     <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -193,16 +207,16 @@
 
     </div>
     <div class="navbar navbar-dark bg-dark fixed-bottom">
-            <div class="container">
-              <p class="navbar-text pull-left">© 2018 - Website Feito Por João Campos e Mário Almeida
-              </p>
-              
-              <a href="https://tsiwemanage7486306.wordpress.com/" class="navbar-btn btn-danger btn pull-right">
-              <span class="fa fa-wordpress"></span>  Vê o nosso blogue</a>
-            </div>
-            
-            
-          </div>
+        <div class="container">
+            <p class="navbar-text pull-left">© 2018 - Website Feito Por João Campos e Mário Almeida
+            </p>
+
+            <a href="https://tsiwemanage7486306.wordpress.com/" class="navbar-btn btn-danger btn pull-right">
+                <span class="fa fa-wordpress"></span>  Vê o nosso blogue</a>
+        </div>
+
+
+    </div>
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
