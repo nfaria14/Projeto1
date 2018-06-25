@@ -1,4 +1,4 @@
-window.onload=function(){
+window.onload = function () {
     renderUtilizadores()
 
     login()
@@ -6,17 +6,17 @@ window.onload=function(){
     rendertestemunhos()
     renderTestimonial()
 
-    let input=document.getElementById("newTestemunho")
-    input.style.visibility='hidden'
+    let input = document.getElementById("newTestemunho")
+    input.style.visibility = 'hidden'
 
-    let userID=localStorage.getItem("userID")
-    let email=""
-    if(userID!=0){
-        for(let i=0;i<utilizadores.length;i++){
-            if(utilizadores[i]._id==userID){
-                email=utilizadores[i]._email
-                if(utilizadores[i]._tipo==0){
-                    input.style.visibility='visible'
+    let userID = localStorage.getItem("userID")
+    let email = ""
+    if (userID != 0) {
+        for (let i = 0; i < utilizadores.length; i++) {
+            if (utilizadores[i]._id == userID) {
+                email = utilizadores[i]._email
+                if (utilizadores[i]._tipo == 0) {
+                    input.style.visibility = 'visible'
                 }
 
             }
@@ -24,16 +24,29 @@ window.onload=function(){
         }
     }
 
-    let frmTestemunho=document.getElementById("frmTestemunho")
-    frmTestemunho.addEventListener("submit",function(){
-        let modal1=document.getElementById("testemunhoModal")
-        let texto=document.getElementById("inputTexto")
+    let frmTestemunho = document.getElementById("frmTestemunho")
+    frmTestemunho.addEventListener("submit", function (event) {
+        event.preventDefault()
+        let texto = document.getElementById("inputTexto")
+        let strerr = ""
+        for (let i = 0; i < testemunhos.length; i++) {
+            if (email == testemunhos[i]._email) {
+                strerr += "Só pode criar 1 testemunho"
+            }
+        }
+        if (strerr == "") {
+            console.log("Vai criar")
+            let novoTeste = new Testemunho(email, texto.value)
+            testemunhos.push(novoTeste)
+            localStorage.setItem("testemunhos", JSON.stringify(testemunhos))
+            renderTestimonial()
+            $('#testemunhoModal').modal('hide')
+        } else {
+            console.log("Não vai criar")
+            alert(strerr)
+            $('#testemunhoModal').modal('hide')
+        }
 
-        let novoTeste= new Testemunho(email,texto.value)
-        testemunhos.push(novoTeste)
-        localStorage.setItem("testemunhos",JSON.stringify(testemunhos))
-        renderTestimonial()
-        $('#testemunhoModal').modal('hide')
     })
 }
 
