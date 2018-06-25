@@ -39,58 +39,58 @@ window.onload = function () {
     data.setAttribute('min', datinha2)
     //Submeter form
     let frmEventos = document.getElementById("frmEventos")
-    frmEventos.addEventListener("submit", function () {
-    //FAzer verificações
-    event.preventDefault()
-    let campos = inputCategoria.value.split(";")
-    let existe=false
-    //Verificar se as categorias existem
-   for (let i = 0; i < campos.length; i++) {
-        //Agora percorrer o array das categorias a ver se o campo x existe, se existir existe= true e sempre q ele acaba de percorrer isso verifica como o existe está
-        for (let j = 0; j < categorias.length; j++) {
-            if(campos[i].toUpperCase()==categorias[j]._nome.toUpperCase()){
-                existe=true
-                stringcat+=categorias[j]._nome+";"
-                console.log("__"+stringcat)
+    frmEventos.addEventListener("submit", function (event) {
+        //FAzer verificações
+        event.preventDefault()
+        let campos = inputCategoria.value.split(";")
+        let existe = false
+        //Verificar se as categorias existem
+        for (let i = 0; i < campos.length; i++) {
+            //Agora percorrer o array das categorias a ver se o campo x existe, se existir existe= true e sempre q ele acaba de percorrer isso verifica como o existe está
+            for (let j = 0; j < categorias.length; j++) {
+                if (campos[i].toUpperCase() == categorias[j]._nome.toUpperCase()) {
+                    existe = true
+                    stringcat += categorias[j]._nome + ";"
+                    console.log("__" + stringcat)
+                }
+                console.log("__" + stringcat)
             }
-            console.log("__"+stringcat)
-        }
-        if(existe=true){
-            console.log(campos[i])
-            existe=false
+            if (existe = true) {
+                console.log(campos[i])
+                existe = false
 
-        }else{
-            strerr+=campos[i]+"Não existe"
+            } else {
+                strerr += campos[i] + "Não existe"
 
-        }
-    }
-   
- //Verificar se string de erro está vazia
- if (strerr == "") {
-     //Alterar objeto
-     for(let i=0;i<eventos.length;i++){
-        if(eventos[i]._id==eventoid){
-             eventos[i]._nome = nome.value 
-            console.log(eventos)
-            eventos[i]._data=data.value
-            eventos[i]._hora = hora.value 
-           eventos[i]._sala=  sala.value 
-             eventos[i]._categoria = inputCategoria.value 
-            eventos[i]._responsavel = responsavel.value 
-             eventos[i]._imagem= imagem.value 
+            }
         }
 
-     }
-    
-    //enviar o array para localstorage
-    localStorage.setItem("eventos", JSON.stringify(eventos))
-} else {
-    alert(strerr)
-}
-    //Enviar para a página de eventos
-    location.replace("../html/eventos.html")
+        //Verificar se string de erro está vazia
+        if (strerr == "") {
+            //Alterar objeto
+            for (let i = 0; i < eventos.length; i++) {
+                if (eventos[i]._id == eventoid) {
+                    eventos[i]._nome = nome.value
+                    console.log(eventos)
+                    eventos[i]._data = data.value
+                    eventos[i]._hora = hora.value
+                    eventos[i]._sala = sala.value
+                    eventos[i]._categoria = inputCategoria.value
+                    eventos[i]._responsavel = responsavel.value
+                    eventos[i]._imagem = imagem.value
+                }
+
+            }
+
+            //enviar o array para localstorage
+            localStorage.setItem("eventos", JSON.stringify(eventos))
+        } else {
+            alert(strerr)
+        }
+        //Enviar para a página de eventos
+        location.replace("../html/eventos.html")
     })
-  
+
 }
 
 

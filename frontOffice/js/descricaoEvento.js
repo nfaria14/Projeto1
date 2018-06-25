@@ -15,7 +15,15 @@ window.onload = function () {
     renderComment()
     renderTestimonial()
     if(localStorage.getItem("userID")!=0){
-        logged=true
+        for(let i=0;i<utilizadores.length;i++){
+            if(localStorage.getItem("userID")==utilizadores[i]._id){
+                if(utilizadores[i]._tipo==0){
+                    logged=true
+
+                }
+            }
+
+        }
     }
     
 
@@ -37,6 +45,7 @@ window.onload = function () {
             }
     }
     //Referencias HTML
+    let userID= localStorage.getItem("userID")
     let nome = document.getElementById("inputNome")
     let data = document.getElementById("inputData")
     let hora = document.getElementById("inputTime")
@@ -44,6 +53,9 @@ window.onload = function () {
     let inputCategoria = document.getElementById("inputCategoria")
     let responsavel = document.getElementById("inputResponsavel")
     let imagem = document.getElementById("inputPoster")
+    let inputDescricao=document.getElementById("inputDescricao")
+    let guardar=document.getElementById("save")
+
     let strerr = ""
     let stringcat = ""
     //Preencher o form
@@ -55,17 +67,79 @@ window.onload = function () {
             sala.value = eventos[i]._sala
             inputCategoria.value = eventos[i]._categoria
             responsavel.value = eventos[i]._responsavel
-            //imagem.value = eventos[i]._imagem
+           imagem.value = eventos[i]._imagem
+           inputDescricao.value=eventos[i]._descricao
 
         }
 
     }
+    for(let i=0;i<utilizadores.length;i++){
+        if(userID==utilizadores[i]._id || userID==0){
+            if(utilizadores[i]._tipo!=1){
+                nome.setAttribute("disabled",true)
+                data.setAttribute("disabled",true)
+                hora.setAttribute("disabled",true)
+                sala.setAttribute("disabled",true)
+                inputCategoria.setAttribute("disabled",true)
+                responsavel.setAttribute("disabled",true)
+                imagem.setAttribute("disabled",true)
+                inputDescricao.setAttribute("disabled",true)
+                guardar.style.display='none'
+            }
+        }
 
-
+    }
+ 
     let frmEventos = document.getElementById("frmEventos")
-    frmEventos.addEventListener("submit", function () {
-        consolo.log("TUDO LA DENTRO!")
-        window.location.replace("mostrarEventos.html")
+    frmEventos.addEventListener("submit", function (event) {
+        //FAzer verificações
+        event.preventDefault()
+        let campos = inputCategoria.value.split(";")
+        let existe = false
+        //Verificar se as categorias existem
+        for (let i = 0; i < campos.length; i++) {
+            //Agora percorrer o array das categorias a ver se o campo x existe, se existir existe= true e sempre q ele acaba de percorrer isso verifica como o existe está
+            for (let j = 0; j < categorias.length; j++) {
+                if (campos[i].toUpperCase() == categorias[j]._nome.toUpperCase()) {
+                    existe = true
+                    stringcat += categorias[j]._nome + ";"
+                    console.log("__" + stringcat)
+                }
+                console.log("__" + stringcat)
+            }
+            if (existe = true) {
+                console.log(campos[i])
+                existe = false
+
+            } else {
+                strerr += campos[i] + "Não existe"
+
+            }
+        }
+
+        //Verificar se string de erro está vazia
+        if (strerr == "") {
+            //Alterar objeto
+            for (let i = 0; i < eventos.length; i++) {
+                if (eventos[i]._id == eventoid) {
+                    eventos[i]._nome = nome.value
+                    eventos[i]._descricao=inputDescricao.value
+                    console.log(eventos)
+                    eventos[i]._data = data.value
+                    eventos[i]._hora = hora.value
+                    eventos[i]._sala = sala.value
+                    eventos[i]._categoria = inputCategoria.value
+                    eventos[i]._responsavel = responsavel.value
+                    eventos[i]._imagem = imagem.value
+                }
+
+            }
+
+            //enviar o array para localstorage
+            localStorage.setItem("eventos", JSON.stringify(eventos))
+        } else {
+            alert(strerr)
+        }
 
     })
 
@@ -282,7 +356,7 @@ function botaoPontuar(e) { //Isto vai abrir um botão para deixar pontuar, cada 
     }
     else {
         if (jaPontoou == true) alert('Já pontuaste este evento')
-        else alert("Tens que estar logado para pontuar")
+        else alert("Tens que estar logado como estudante para pontuar")
     }
 
 }

@@ -174,66 +174,79 @@
     <!--DESCRICAO DO EVENTO-->
     <div class="container">
         <div class="row">
-            <div class="col-md-1">
 
-            </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="jumbotron">
                     <h1 class="display-3">Descrição do Evento</h1>
 
                     <form id="frmEventos">
-
-                        <div class="form-row">
-                            <!--Campo nome-->
-                            <div class="form-group col-md-5">
-                                <label for="inputNome">Nome</label>
-                                <input type="text" class="form-control" id="inputNome" disabled>
-                            </div>
-                        </div>
-
-                        <!--DATA, HORA E SALA-->
-                        <div class="form-row">
-                            <div class="form-group col-md-5">
-                                <label for="inputData">Data</label>
-                                <input type="date" class="form-control" id="inputData" disabled>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-5">
-                                <label for="inputTime">Hora</label>
-                                <input type="time" class="form-control" id="inputTime" disabled>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-5">
-                                <label for="inputSala">Sala</label>
-                                <input type="text" class="form-control" id="inputSala" maxlength="4" disabled>
-                            </div>
-                        </div>
-
-                        <!--Categorias-->
-                        <div class="form-row">
-
-                            <div class="form-group col-md-5">
-                                <label for="selCategorias">Categorias</label>
-                                <input type="text" id="inputCategoria" disabled>
-                            </div>
-                        </div>
-                        <!--Responsável-->
-                        <div class="form-row">
-                            <div class="form-group col-md-5">
-                                <label for="inputResponsavel">Nome do Responsável</label>
-                                <input type="text" class="form-control" id="inputResponsavel" maxlength="30" disabled>
-                            </div>
-                        </div>
-                        <!-- Buttons-->
-                        <div class="form-row">
-                            <div class="form-group col-md-5">
-                                <button type="submit" class="btn btn-primary mb-2">Fechar</button>
-
-                            </div>
-                        </div>
-
+                
+                      
+                            <div class="form-row">
+                                    <!--Campo nome-->
+                                    <div class="form-group col-md-6">
+                                        <label for="inputNome">Nome</label>
+                                        <input type="text" class="form-control" id="inputNome">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                        <!--Campo nome-->
+                                        <div class="form-group col-md-6">
+                                            <label for="inputDescricao">Descrição</label>
+                                           <textarea class="form-control" id="inputDescricao"></textarea>
+                                        </div>
+                                    </div>
+                                <!--DATA, HORA E SALA-->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputData">Data</label>
+                                        <input type="date" class="form-control" id="inputData">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputTime">Hora</label>
+                                        <input type="time" class="form-control" id="inputTime">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputSala">Sala</label>
+                                        <input type="text" class="form-control" id="inputSala" maxlength="4">
+                                    </div>
+                                </div>
+        
+                                <!--Categorias-->
+                                <div class="form-row">
+        
+                                    <div class="form-group col-md-6">
+                                        <label for="selCategorias">Categorias</label>
+                                        <input type="text" id="inputCategoria">
+                                    </div>
+                                </div>
+                                <!--Responsável-->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputResponsavel">Nome do Responsável</label>
+                                        <input type="text" class="form-control" id="inputResponsavel" maxlength="30">
+                                    </div>
+                                </div>
+                                <div class="form-row" id="inputImagem">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputPoster">Imagem Evento</label>
+                                            <input type="url" class="form-control" id="inputPoster" required>
+                                        </div> 
+                                    </div>
+                                <!-- Buttons-->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <button id="save" type="submit" class="btn btn-primary mb-2">Guardar Alterações</button>
+        
+                                    </div>
+                                </div>
+                              
+                      
+                       
                     </form>
                 </div>
             </div>
