@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- SideBar CSS -->
@@ -48,13 +49,15 @@
 
         <script>
             function openNav() {
-                document.getElementById("mySidenav").style.width = "250px";
-                document.getElementById("mybody").style.paddingLeft="250px";
+                document.getElementById("mySidenav").style.width = "200px";
+                document.getElementById("mybody").style.paddingLeft="200px";
+                document.getElementById("myfooter").style.paddingLeft="200px";
             }
 
             function closeNav() {
                 document.getElementById("mySidenav").style.width = "0";
                 document.getElementById("mybody").style.paddingLeft="0";
+                document.getElementById("myfooter").style.paddingLeft="0";
 
             }
         </script>
@@ -62,8 +65,12 @@
 
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto">
-
+                <a class="navbar-brand" href="index.html">
+                    <img style="margin-left: 10px" src="../img/logo navbar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    eNote
+                  </a>
             </ul>
+           
             <ul class="navbar-nav">
                 <!--OPÇÃO LOGIN-->
                 <li id="optLogin" class="nav-item">
@@ -177,13 +184,13 @@
     </div>
 
     </div>
-    <div class="navbar navbar-default fixed-bottom">
+    <div class="navbar navbar-dark bg-dark fixed-bottom">
             <div class="container">
               <p class="navbar-text pull-left">© 2018 - Website Feito Por João Campos e Mário Almeida
               </p>
               
-              <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
-              <span class="glyphicon glyphicon-star"></span>  Vê o nosso blogue</a>
+              <a href="https://tsiwemanage7486306.wordpress.com/" class="navbar-btn btn-danger btn pull-right">
+              <span class="fa fa-wordpress"></span>  Vê o nosso blogue</a>
             </div>
             
             

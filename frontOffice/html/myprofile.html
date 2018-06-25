@@ -47,13 +47,15 @@
 
         <script>
             function openNav() {
-                document.getElementById("mySidenav").style.width = "250px";
-                document.getElementById("mybody").style.paddingLeft="250px";
+                document.getElementById("mySidenav").style.width = "200px";
+                document.getElementById("mybody").style.paddingLeft="200px";
+                document.getElementById("myfooter").style.paddingLeft="200px";
             }
 
             function closeNav() {
                 document.getElementById("mySidenav").style.width = "0";
                 document.getElementById("mybody").style.paddingLeft="0";
+                document.getElementById("myfooter").style.paddingLeft="0";
 
             }
         </script>
@@ -61,7 +63,10 @@
 
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto">
-
+                <a class="navbar-brand" href="index.html">
+                    <img style="margin-left: 10px" src="../img/logo navbar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    eNote
+                  </a>
             </ul>
             <ul class="navbar-nav">
                 <!--OPÇÃO LOGIN-->
@@ -231,7 +236,17 @@
             </form>
         </div>
 
-
+        <div class="navbar navbar-dark bg-dark fixed-bottom">
+            <div class="container">
+              <p class="navbar-text pull-left">© 2018 - Website Feito Por João Campos e Mário Almeida
+              </p>
+              
+              <a href="https://tsiwemanage7486306.wordpress.com/" class="navbar-btn btn-danger btn pull-right">
+              <span class="fa fa-wordpress"></span>  Vê o nosso blogue</a>
+            </div>
+            
+            
+          </div>
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

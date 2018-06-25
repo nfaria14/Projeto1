@@ -43,7 +43,7 @@ function rendernormal() {
                 <h5 class="card-title">${parcerias[i]._nome}</h5>
                 <p class="card-text">${parcerias[i]._local}</p>`
 
-        strHtmlCard += `<a id="${parcerias[i]._id}" href="${parcerias[i]._url}" class="btn btn-info" >Ver Site</a>`
+        strHtmlCard += `<a id="${parcerias[i]._id}" href="${parcerias[i]._url}" class="btn btn-info btn-lg btn-block" >Ver Site</a>`
 
         strHtmlCard += `</div>
         </div>      
@@ -77,9 +77,9 @@ function renderdocente() {
                 <h5 class="card-title">${parcerias[i]._nome}</h5>
                 <p class="card-text">${parcerias[i]._local}</p>`
 
-        strHtmlCard += `<a id="${parcerias[i]._id}" href="${parcerias[i]._url}" class="btn btn-primary" >Ver Site</a>`
-        strHtmlCard += `<a id="${parcerias[i]._id}" data-toggle='modal' data-target='#parceiroModal' class="btn btn-warning edit" >Editar</a>`
-        strHtmlCard += `<a id="${parcerias[i]._id}" href="#" class="btn btn-danger remove">REMOVE</a>`
+        strHtmlCard += `<a id="${parcerias[i]._id}" href="${parcerias[i]._url}" class="btn btn-primary btn-lg btn-block" >Ver Site</a>`
+        strHtmlCard += `<a id="${parcerias[i]._id}" data-toggle='modal' data-target='#parceiroModal' class="btn btn-warning btn-lg btn-block edit" >Editar</a>`
+        strHtmlCard += `<a id="${parcerias[i]._id}" href="#" class="btn btn-danger btn-lg btn-block remove">REMOVE</a>`
         strHtmlCard += `</div>
         </div>      
     </div>`

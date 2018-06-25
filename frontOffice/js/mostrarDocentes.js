@@ -19,14 +19,14 @@ function renderCatalogo(){
         }
 
         // Cria a card
-        strHtmlCard += `<div class="col-sm-1"></div><div class="col-sm-3">
-                <div class="card" >
-                    <img class="card-img-top" src="#" alt="Por preencher">
+        strHtmlCard += `<div class="col-sm-1"></div><div class="col-sm-4">
+                <div class="card h-100" >
+                    <img class="card-img-top" src="#" height="200" alt="Por preencher">
                     <div class="card-body">
                         <h5 class="card-title">${docentes[i]._nome}</h5>
                         <p class="card-text">${docentes[i]._formacao}</p>`
 
-        strHtmlCard += `<a id="${docentes[i]._id}" href="../html/verdocente.html" class="btn btn-warning view" >Ver perfil</a>`
+        strHtmlCard += `<a id="${docentes[i]._id}" href="../html/verdocente.html" class="btn btn-warning btn-lg btn-block view" >Ver perfil</a>`
 
         strHtmlCard += `</div>
                 </div>      
